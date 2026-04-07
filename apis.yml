@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Monitoring
-  - Prometheus
-  - Containers
-  - Observability
   - AWS
+  - Containers
+  - Monitoring
+  - Observability
+  - Prometheus
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -28,9 +28,9 @@ apis:
     humanURL: https://aws.amazon.com/prometheus/
     baseURL: https://aps.amazonaws.com
     tags:
+      - Containers
       - Monitoring
       - Prometheus
-      - Containers
     properties:
       - type: Documentation
         url: https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html
