@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-workspace-summary-structure.json",
+  "name": "WorkspaceSummary",
+  "description": "Represents a summary of the properties of a workspace.",
+  "type": "object",
+  "properties": {
+    "workspaceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceId"
+        },
+        {
+          "description": "Unique string identifying this workspace."
+        }
+      ]
+    },
+    "alias": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceAlias"
+        },
+        {
+          "description": "Alias of this workspace."
+        }
+      ]
+    },
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceArn"
+        },
+        {
+          "description": "The AmazonResourceName of this workspace."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceStatus"
+        },
+        {
+          "description": "The status of this workspace."
+        }
+      ]
+    },
+    "createdAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time when the workspace was created."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The tags of this workspace."
+        }
+      ]
+    }
+  },
+  "required": [
+    "workspaceId",
+    "arn",
+    "status",
+    "createdAt"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-tag-key-structure.json",
+  "name": "TagKey",
+  "description": "TagKey schema from Amazon Managed Service for Prometheus API",
+  "type": "string",
+  "pattern": "([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)"
+}

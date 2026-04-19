@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-rule-groups-namespace-status-code-structure.json",
+  "name": "RuleGroupsNamespaceStatusCode",
+  "description": "State of a namespace.",
+  "type": "string",
+  "enum": [
+    "CREATING",
+    "ACTIVE",
+    "UPDATING",
+    "DELETING",
+    "CREATION_FAILED",
+    "UPDATE_FAILED"
+  ]
+}

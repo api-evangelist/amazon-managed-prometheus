@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-tag-map-structure.json",
+  "name": "TagMap",
+  "description": "The list of tags assigned to the resource.",
+  "type": "object",
+  "additionalProperties": {
+    "$ref": "#/components/schemas/TagValue"
+  }
+}

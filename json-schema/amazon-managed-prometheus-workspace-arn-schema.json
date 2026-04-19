@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-schema/amazon-managed-prometheus-workspace-arn-schema.json",
+  "title": "WorkspaceArn",
+  "description": "An ARN identifying a Workspace.",
+  "type": "string"
+}

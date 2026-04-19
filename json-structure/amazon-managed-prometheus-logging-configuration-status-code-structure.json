@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-logging-configuration-status-code-structure.json",
+  "name": "LoggingConfigurationStatusCode",
+  "description": "State of a logging configuration.",
+  "type": "string",
+  "enum": [
+    "CREATING",
+    "ACTIVE",
+    "UPDATING",
+    "DELETING",
+    "CREATION_FAILED",
+    "UPDATE_FAILED"
+  ]
+}

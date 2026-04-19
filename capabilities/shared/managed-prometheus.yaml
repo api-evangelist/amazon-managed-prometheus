@@ -1,0 +1,187 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: "Amazon Managed Service for Prometheus"
+  description: "API for managing Prometheus workspaces, alert manager definitions, and rule group namespaces."
+  tags:
+    - Amazon
+    - Prometheus
+    - Monitoring
+    - Observability
+    - Containers
+  created: "2026-04-19"
+  modified: "2026-04-19"
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+      AWS_REGION: AWS_REGION
+capability:
+  consumes:
+    - type: http
+      namespace: managed-prometheus
+      baseUri: https://aps.amazonaws.com
+      description: "Amazon Managed Service for Prometheus REST API"
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "AWS4-HMAC-SHA256 {{AWS_ACCESS_KEY_ID}}"
+        placement: header
+      resources:
+        - name: workspaces
+          path: /workspaces
+          description: "Manage Prometheus workspaces"
+          operations:
+            - name: create-workspace
+              method: POST
+              description: "Create a Prometheus workspace"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: list-workspaces
+              method: GET
+              description: "List Prometheus workspaces"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: describe-workspace
+              method: GET
+              description: "Get workspace details"
+              inputParameters:
+                - name: workspaceId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Workspace ID"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: alert-manager
+          path: /workspaces/{workspaceId}/alertmanager/definition
+          description: "Manage alert manager definitions"
+          operations:
+            - name: create-alert-manager-definition
+              method: POST
+              description: "Create alert manager definition"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: describe-alert-manager-definition
+              method: GET
+              description: "Get alert manager definition"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: rule-groups
+          path: /workspaces/{workspaceId}/rulegroupsnamespaces
+          description: "Manage rule group namespaces"
+          operations:
+            - name: create-rule-groups-namespace
+              method: POST
+              description: "Create a rule groups namespace"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: list-rule-groups-namespaces
+              method: GET
+              description: "List rule group namespaces"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: managed-prometheus-api
+      resources:
+        - path: /v1/workspaces
+          name: workspaces
+          description: "Prometheus workspaces"
+          operations:
+            - method: GET
+              name: list-workspaces
+              description: "List workspaces"
+              call: "managed-prometheus.list-workspaces"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+    - type: mcp
+      port: 9100
+      namespace: managed-prometheus-mcp
+      transport: http
+      tools:
+        - name: list-prometheus-workspaces
+          description: "List all Amazon Managed Service for Prometheus workspaces"
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: "managed-prometheus.list-workspaces"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-prometheus-workspace
+          description: "Create a new Prometheus workspace for metrics storage"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "managed-prometheus.create-workspace"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: describe-prometheus-workspace
+          description: "Get details of a Prometheus workspace"
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: "managed-prometheus.describe-workspace"
+          with:
+            workspaceId: "tools.workspaceId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-alert-manager-definition
+          description: "Configure alert manager for sending notifications from Prometheus alerts"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "managed-prometheus.create-alert-manager-definition"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-rule-groups-namespace
+          description: "Create Prometheus recording and alerting rules"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "managed-prometheus.create-rule-groups-namespace"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-rule-groups-namespaces
+          description: "List all Prometheus rule group namespaces"
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: "managed-prometheus.list-rule-groups-namespaces"
+          outputParameters:
+            - type: object
+              mapping: "$."

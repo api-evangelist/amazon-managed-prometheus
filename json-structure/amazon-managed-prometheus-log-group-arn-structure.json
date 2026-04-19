@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-log-group-arn-structure.json",
+  "name": "LogGroupArn",
+  "description": "LogGroupArn schema from Amazon Managed Service for Prometheus API",
+  "type": "string",
+  "pattern": "arn:aws[a-z0-9-]*:logs:[a-z0-9-]+:\\d{12}:log-group:[A-Za-z0-9\\.\\-\\_\\#/]{1,512}\\:\\*"
+}

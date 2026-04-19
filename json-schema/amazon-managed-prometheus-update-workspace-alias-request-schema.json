@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-schema/amazon-managed-prometheus-update-workspace-alias-request-schema.json",
+  "title": "UpdateWorkspaceAliasRequest",
+  "description": "Represents the input of an UpdateWorkspaceAlias operation.",
+  "type": "object",
+  "properties": {
+    "alias": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceAlias"
+        },
+        {
+          "description": "The new alias of the workspace."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IdempotencyToken"
+        },
+        {
+          "description": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request."
+        }
+      ]
+    }
+  }
+}

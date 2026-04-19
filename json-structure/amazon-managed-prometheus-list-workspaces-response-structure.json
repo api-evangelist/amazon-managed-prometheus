@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-list-workspaces-response-structure.json",
+  "name": "ListWorkspacesResponse",
+  "description": "Represents the output of a ListWorkspaces operation.",
+  "type": "object",
+  "properties": {
+    "workspaces": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceSummaryList"
+        },
+        {
+          "description": "The list of existing workspaces, including those undergoing creation or deletion."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "Pagination token to use when requesting the next page in this list."
+        }
+      ]
+    }
+  },
+  "required": [
+    "workspaces"
+  ]
+}

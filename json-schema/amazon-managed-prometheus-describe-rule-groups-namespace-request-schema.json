@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-schema/amazon-managed-prometheus-describe-rule-groups-namespace-request-schema.json",
+  "title": "DescribeRuleGroupsNamespaceRequest",
+  "description": "Represents the input of a DescribeRuleGroupsNamespace operation.",
+  "type": "object",
+  "properties": {}
+}

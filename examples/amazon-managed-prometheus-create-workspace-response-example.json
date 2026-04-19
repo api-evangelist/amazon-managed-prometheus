@@ -1,0 +1,6 @@
+{
+  "workspaceId": "abc12345",
+  "arn": "arn:aws:service:us-east-1:123456789012:resource/id",
+  "status": "ACTIVE",
+  "tags": "example-value"
+}

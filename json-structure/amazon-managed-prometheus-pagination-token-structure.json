@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-pagination-token-structure.json",
+  "name": "PaginationToken",
+  "description": "A token used to access the next page in a paginated result set.",
+  "type": "string"
+}

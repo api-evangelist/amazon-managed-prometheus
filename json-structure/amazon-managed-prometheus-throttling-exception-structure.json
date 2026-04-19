@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-throttling-exception-structure.json",
+  "name": "ThrottlingException",
+  "description": "ThrottlingException schema from Amazon Managed Service for Prometheus API"
+}

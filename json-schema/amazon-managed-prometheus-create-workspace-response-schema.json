@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-schema/amazon-managed-prometheus-create-workspace-response-schema.json",
+  "title": "CreateWorkspaceResponse",
+  "description": "Represents the output of a CreateWorkspace operation.",
+  "type": "object",
+  "properties": {
+    "workspaceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceId"
+        },
+        {
+          "description": "The generated ID of the workspace that was just created."
+        }
+      ]
+    },
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceArn"
+        },
+        {
+          "description": "The ARN of the workspace that was just created."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceStatus"
+        },
+        {
+          "description": "The status of the workspace that was just created (usually CREATING)."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The tags of this workspace."
+        }
+      ]
+    }
+  },
+  "required": [
+    "workspaceId",
+    "arn",
+    "status"
+  ]
+}

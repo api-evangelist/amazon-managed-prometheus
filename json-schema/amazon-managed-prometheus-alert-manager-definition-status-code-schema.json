@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-schema/amazon-managed-prometheus-alert-manager-definition-status-code-schema.json",
+  "title": "AlertManagerDefinitionStatusCode",
+  "description": "State of an alert manager definition.",
+  "type": "string",
+  "enum": [
+    "CREATING",
+    "ACTIVE",
+    "UPDATING",
+    "DELETING",
+    "CREATION_FAILED",
+    "UPDATE_FAILED"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "arn": "arn:aws:service:us-east-1:123456789012:resource/id",
+  "name": "my-resource",
+  "status": "ACTIVE",
+  "data": "example-value",
+  "createdAt": "example-value",
+  "modifiedAt": "example-value",
+  "tags": "example-value"
+}

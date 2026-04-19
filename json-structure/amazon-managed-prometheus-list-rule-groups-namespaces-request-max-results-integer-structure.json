@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-list-rule-groups-namespaces-request-max-results-integer-structure.json",
+  "name": "ListRuleGroupsNamespacesRequestMaxResultsInteger",
+  "description": "ListRuleGroupsNamespacesRequestMaxResultsInteger schema from Amazon Managed Service for Prometheus API",
+  "type": "int32",
+  "minimum": 1,
+  "maximum": 1000
+}

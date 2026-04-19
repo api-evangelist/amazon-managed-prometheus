@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-schema/amazon-managed-prometheus-describe-rule-groups-namespace-response-schema.json",
+  "title": "DescribeRuleGroupsNamespaceResponse",
+  "description": "Represents the output of a DescribeRuleGroupsNamespace operation.",
+  "type": "object",
+  "properties": {
+    "ruleGroupsNamespace": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RuleGroupsNamespaceDescription"
+        },
+        {
+          "description": "The selected rule groups namespace."
+        }
+      ]
+    }
+  },
+  "required": [
+    "ruleGroupsNamespace"
+  ]
+}

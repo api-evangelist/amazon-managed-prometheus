@@ -1,0 +1,7 @@
+{
+  "status": "ACTIVE",
+  "workspace": "example-value",
+  "logGroupArn": "arn:aws:service:us-east-1:123456789012:resource/id",
+  "createdAt": "example-value",
+  "modifiedAt": "example-value"
+}

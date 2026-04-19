@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-workspace-status-structure.json",
+  "name": "WorkspaceStatus",
+  "description": "Represents the status of a workspace.",
+  "type": "object",
+  "properties": {
+    "statusCode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceStatusCode"
+        },
+        {
+          "description": "Status code of this workspace."
+        }
+      ]
+    }
+  },
+  "required": [
+    "statusCode"
+  ]
+}

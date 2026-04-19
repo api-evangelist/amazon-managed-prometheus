@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-schema/amazon-managed-prometheus-pagination-token-schema.json",
+  "title": "PaginationToken",
+  "description": "A token used to access the next page in a paginated result set.",
+  "type": "string"
+}

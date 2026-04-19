@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-schema/amazon-managed-prometheus-create-logging-configuration-response-schema.json",
+  "title": "CreateLoggingConfigurationResponse",
+  "description": "Represents the output of a CreateLoggingConfiguration operation.",
+  "type": "object",
+  "properties": {
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LoggingConfigurationStatus"
+        },
+        {
+          "description": "The status of the logging configuration."
+        }
+      ]
+    }
+  },
+  "required": [
+    "status"
+  ]
+}

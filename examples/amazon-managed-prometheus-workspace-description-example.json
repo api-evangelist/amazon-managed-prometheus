@@ -1,0 +1,9 @@
+{
+  "workspaceId": "abc12345",
+  "alias": "example-value",
+  "arn": "arn:aws:service:us-east-1:123456789012:resource/id",
+  "status": "ACTIVE",
+  "prometheusEndpoint": "example-value",
+  "createdAt": "example-value",
+  "tags": "example-value"
+}

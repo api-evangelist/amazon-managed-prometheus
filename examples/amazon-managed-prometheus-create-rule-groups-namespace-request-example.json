@@ -1,0 +1,6 @@
+{
+  "name": "my-resource",
+  "data": "example-value",
+  "clientToken": "example-value",
+  "tags": "example-value"
+}

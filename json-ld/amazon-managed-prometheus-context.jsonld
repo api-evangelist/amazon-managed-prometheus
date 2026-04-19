@@ -1,0 +1,119 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "amsp": "https://amsp.amazonaws.com/schema/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AlertManagerDefinitionDescription": "amsp:AlertManagerDefinitionDescription",
+    "AlertManagerDefinitionStatus": "amsp:AlertManagerDefinitionStatus",
+    "CreateAlertManagerDefinitionRequest": "amsp:CreateAlertManagerDefinitionRequest",
+    "CreateAlertManagerDefinitionResponse": "amsp:CreateAlertManagerDefinitionResponse",
+    "CreateLoggingConfigurationRequest": "amsp:CreateLoggingConfigurationRequest",
+    "CreateLoggingConfigurationResponse": "amsp:CreateLoggingConfigurationResponse",
+    "CreateRuleGroupsNamespaceRequest": "amsp:CreateRuleGroupsNamespaceRequest",
+    "CreateRuleGroupsNamespaceResponse": "amsp:CreateRuleGroupsNamespaceResponse",
+    "CreateWorkspaceRequest": "amsp:CreateWorkspaceRequest",
+    "CreateWorkspaceResponse": "amsp:CreateWorkspaceResponse",
+    "DeleteAlertManagerDefinitionRequest": "amsp:DeleteAlertManagerDefinitionRequest",
+    "DeleteLoggingConfigurationRequest": "amsp:DeleteLoggingConfigurationRequest",
+    "DeleteRuleGroupsNamespaceRequest": "amsp:DeleteRuleGroupsNamespaceRequest",
+    "DeleteWorkspaceRequest": "amsp:DeleteWorkspaceRequest",
+    "DescribeAlertManagerDefinitionRequest": "amsp:DescribeAlertManagerDefinitionRequest",
+    "DescribeAlertManagerDefinitionResponse": "amsp:DescribeAlertManagerDefinitionResponse",
+    "DescribeLoggingConfigurationRequest": "amsp:DescribeLoggingConfigurationRequest",
+    "DescribeLoggingConfigurationResponse": "amsp:DescribeLoggingConfigurationResponse",
+    "DescribeRuleGroupsNamespaceRequest": "amsp:DescribeRuleGroupsNamespaceRequest",
+    "DescribeRuleGroupsNamespaceResponse": "amsp:DescribeRuleGroupsNamespaceResponse",
+    "DescribeWorkspaceRequest": "amsp:DescribeWorkspaceRequest",
+    "DescribeWorkspaceResponse": "amsp:DescribeWorkspaceResponse",
+    "ListRuleGroupsNamespacesRequest": "amsp:ListRuleGroupsNamespacesRequest",
+    "ListRuleGroupsNamespacesResponse": "amsp:ListRuleGroupsNamespacesResponse",
+    "ListTagsForResourceRequest": "amsp:ListTagsForResourceRequest",
+    "ListTagsForResourceResponse": "amsp:ListTagsForResourceResponse",
+    "ListWorkspacesRequest": "amsp:ListWorkspacesRequest",
+    "ListWorkspacesResponse": "amsp:ListWorkspacesResponse",
+    "LoggingConfigurationMetadata": "amsp:LoggingConfigurationMetadata",
+    "LoggingConfigurationStatus": "amsp:LoggingConfigurationStatus",
+    "PutAlertManagerDefinitionRequest": "amsp:PutAlertManagerDefinitionRequest",
+    "PutAlertManagerDefinitionResponse": "amsp:PutAlertManagerDefinitionResponse",
+    "PutRuleGroupsNamespaceRequest": "amsp:PutRuleGroupsNamespaceRequest",
+    "PutRuleGroupsNamespaceResponse": "amsp:PutRuleGroupsNamespaceResponse",
+    "RuleGroupsNamespaceDescription": "amsp:RuleGroupsNamespaceDescription",
+    "RuleGroupsNamespaceStatus": "amsp:RuleGroupsNamespaceStatus",
+    "RuleGroupsNamespaceSummary": "amsp:RuleGroupsNamespaceSummary",
+    "TagMap": "amsp:TagMap",
+    "TagResourceRequest": "amsp:TagResourceRequest",
+    "TagResourceResponse": "amsp:TagResourceResponse",
+    "UntagResourceRequest": "amsp:UntagResourceRequest",
+    "UntagResourceResponse": "amsp:UntagResourceResponse",
+    "UpdateLoggingConfigurationRequest": "amsp:UpdateLoggingConfigurationRequest",
+    "UpdateLoggingConfigurationResponse": "amsp:UpdateLoggingConfigurationResponse",
+    "UpdateWorkspaceAliasRequest": "amsp:UpdateWorkspaceAliasRequest",
+    "WorkspaceDescription": "amsp:WorkspaceDescription",
+    "WorkspaceStatus": "amsp:WorkspaceStatus",
+    "WorkspaceSummary": "amsp:WorkspaceSummary",
+    "alertManagerDefinition": {
+      "@id": "amsp:alertManagerDefinition"
+    },
+    "alias": {
+      "@id": "amsp:alias"
+    },
+    "arn": {
+      "@id": "amsp:arn"
+    },
+    "clientToken": {
+      "@id": "amsp:clientToken"
+    },
+    "createdAt": {
+      "@id": "amsp:createdAt"
+    },
+    "data": {
+      "@id": "amsp:data"
+    },
+    "logGroupArn": {
+      "@id": "amsp:logGroupArn"
+    },
+    "loggingConfiguration": {
+      "@id": "amsp:loggingConfiguration"
+    },
+    "modifiedAt": {
+      "@id": "amsp:modifiedAt"
+    },
+    "name": {
+      "@id": "amsp:name"
+    },
+    "nextToken": {
+      "@id": "amsp:nextToken"
+    },
+    "prometheusEndpoint": {
+      "@id": "amsp:prometheusEndpoint"
+    },
+    "ruleGroupsNamespace": {
+      "@id": "amsp:ruleGroupsNamespace"
+    },
+    "ruleGroupsNamespaces": {
+      "@id": "amsp:ruleGroupsNamespaces"
+    },
+    "status": {
+      "@id": "amsp:status"
+    },
+    "statusCode": {
+      "@id": "amsp:statusCode"
+    },
+    "statusReason": {
+      "@id": "amsp:statusReason"
+    },
+    "tags": {
+      "@id": "amsp:tags"
+    },
+    "workspace": {
+      "@id": "amsp:workspace"
+    },
+    "workspaceId": {
+      "@id": "amsp:workspaceId"
+    },
+    "workspaces": {
+      "@id": "amsp:workspaces"
+    }
+  }
+}

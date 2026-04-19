@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-schema/amazon-managed-prometheus-workspace-id-schema.json",
+  "title": "WorkspaceId",
+  "description": "A workspace ID.",
+  "type": "string",
+  "pattern": ".*[0-9A-Za-z][-.0-9A-Z_a-z]*.*"
+}

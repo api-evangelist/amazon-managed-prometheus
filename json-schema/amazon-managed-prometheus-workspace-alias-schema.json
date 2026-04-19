@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-schema/amazon-managed-prometheus-workspace-alias-schema.json",
+  "title": "WorkspaceAlias",
+  "description": "A user-assigned workspace alias.",
+  "type": "string"
+}

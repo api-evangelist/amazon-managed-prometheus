@@ -1,0 +1,135 @@
+rules:
+  info-title-required:
+    description: Info title must be present
+    severity: error
+    given: "$.info"
+    then:
+      field: title
+      function: truthy
+  info-description-required:
+    description: Info description must be present
+    severity: warn
+    given: "$.info"
+    then:
+      field: description
+      function: truthy
+  info-version-required:
+    description: API version must be defined
+    severity: error
+    given: "$.info"
+    then:
+      field: version
+      function: truthy
+  openapi-version:
+    description: Must use OpenAPI 3.0.x
+    severity: error
+    given: "$"
+    then:
+      field: openapi
+      function: pattern
+      functionOptions:
+        match: "^3\\.0\\."
+  servers-required:
+    description: Servers must be defined
+    severity: error
+    given: "$"
+    then:
+      field: servers
+      function: truthy
+  servers-https:
+    description: Server URLs should use HTTPS
+    severity: warn
+    given: "$.servers[*]"
+    then:
+      field: url
+      function: pattern
+      functionOptions:
+        match: "^https://"
+  operation-operationId-required:
+    description: Every operation must have an operationId
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: operationId
+      function: truthy
+  operation-summary-required:
+    description: Every operation must have a summary
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: summary
+      function: truthy
+  operation-summary-prefix:
+    description: Operation summaries should start with "Amazon Managed Service for Prometheus"
+    severity: info
+    given: "$.paths[*][get,post,put,patch,delete].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^Amazon Managed Service for Prometheus"
+  operation-tags-required:
+    description: Every operation must have at least one tag
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: tags
+      function: truthy
+  parameter-description-required:
+    description: All parameters must have descriptions
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete].parameters[*]"
+    then:
+      field: description
+      function: truthy
+  response-description-required:
+    description: All responses must have a description
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete].responses[*]"
+    then:
+      field: description
+      function: truthy
+  schema-description:
+    description: Top-level schemas should have descriptions
+    severity: info
+    given: "$.components.schemas[*]"
+    then:
+      field: description
+      function: truthy
+  security-schemes-required:
+    description: Security schemes must be defined
+    severity: error
+    given: "$.components"
+    then:
+      field: securitySchemes
+      function: truthy
+  http-get-no-body:
+    description: GET operations should not have request bodies
+    severity: error
+    given: "$.paths[*].get"
+    then:
+      field: requestBody
+      function: falsy
+  no-empty-descriptions:
+    description: Descriptions should not be empty strings
+    severity: warn
+    given: "$..description"
+    then:
+      function: pattern
+      functionOptions:
+        match: ".+"
+  paths-kebab-case:
+    description: Path segments should use kebab-case
+    severity: info
+    given: "$.paths"
+    then:
+      field: "@key"
+      function: pattern
+      functionOptions:
+        match: "^(/[a-z0-9{}_.\\-]+)+$"
+  examples-encouraged:
+    description: Schema properties should include examples
+    severity: info
+    given: "$.components.schemas[*].properties[*]"
+    then:
+      field: example
+      function: truthy

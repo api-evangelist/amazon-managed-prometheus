@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-create-logging-configuration-request-structure.json",
+  "name": "CreateLoggingConfigurationRequest",
+  "description": "Represents the input of a CreateLoggingConfiguration operation.",
+  "type": "object",
+  "properties": {
+    "logGroupArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LogGroupArn"
+        },
+        {
+          "description": "The ARN of the CW log group to which the vended log data will be published."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IdempotencyToken"
+        },
+        {
+          "description": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request."
+        }
+      ]
+    }
+  },
+  "required": [
+    "logGroupArn"
+  ]
+}

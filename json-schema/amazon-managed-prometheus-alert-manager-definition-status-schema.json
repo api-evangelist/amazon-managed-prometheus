@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-schema/amazon-managed-prometheus-alert-manager-definition-status-schema.json",
+  "title": "AlertManagerDefinitionStatus",
+  "description": "Represents the status of a definition.",
+  "type": "object",
+  "properties": {
+    "statusCode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AlertManagerDefinitionStatusCode"
+        },
+        {
+          "description": "Status code of this definition."
+        }
+      ]
+    },
+    "statusReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The reason for failure if any."
+        }
+      ]
+    }
+  },
+  "required": [
+    "statusCode"
+  ]
+}

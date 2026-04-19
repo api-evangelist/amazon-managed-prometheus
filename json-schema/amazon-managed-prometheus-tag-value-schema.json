@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-schema/amazon-managed-prometheus-tag-value-schema.json",
+  "title": "TagValue",
+  "description": "TagValue schema from Amazon Managed Service for Prometheus API",
+  "type": "string",
+  "pattern": "([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)"
+}

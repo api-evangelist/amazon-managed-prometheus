@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-workspace-arn-structure.json",
+  "name": "WorkspaceArn",
+  "description": "An ARN identifying a Workspace.",
+  "type": "string"
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-delete-workspace-request-structure.json",
+  "name": "DeleteWorkspaceRequest",
+  "description": "Represents the input of a DeleteWorkspace operation.",
+  "type": "object",
+  "properties": {}
+}

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-logging-configuration-metadata-structure.json",
+  "name": "LoggingConfigurationMetadata",
+  "description": "Represents the properties of a logging configuration metadata.",
+  "type": "object",
+  "properties": {
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LoggingConfigurationStatus"
+        },
+        {
+          "description": "The status of the logging configuration."
+        }
+      ]
+    },
+    "workspace": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceId"
+        },
+        {
+          "description": "The workspace where the logging configuration exists."
+        }
+      ]
+    },
+    "logGroupArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LogGroupArn"
+        },
+        {
+          "description": "The ARN of the CW log group to which the vended log data will be published."
+        }
+      ]
+    },
+    "createdAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time when the logging configuration was created."
+        }
+      ]
+    },
+    "modifiedAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time when the logging configuration was modified."
+        }
+      ]
+    }
+  },
+  "required": [
+    "status",
+    "workspace",
+    "logGroupArn",
+    "createdAt",
+    "modifiedAt"
+  ]
+}

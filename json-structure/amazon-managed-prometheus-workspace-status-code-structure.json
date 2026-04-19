@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-workspace-status-code-structure.json",
+  "name": "WorkspaceStatusCode",
+  "description": "State of a workspace.",
+  "type": "string",
+  "enum": [
+    "CREATING",
+    "ACTIVE",
+    "UPDATING",
+    "DELETING",
+    "CREATION_FAILED"
+  ]
+}

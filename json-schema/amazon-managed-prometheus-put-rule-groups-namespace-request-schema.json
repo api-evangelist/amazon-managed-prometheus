@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-schema/amazon-managed-prometheus-put-rule-groups-namespace-request-schema.json",
+  "title": "PutRuleGroupsNamespaceRequest",
+  "description": "Represents the input of a PutRuleGroupsNamespace operation.",
+  "type": "object",
+  "properties": {
+    "data": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RuleGroupsNamespaceData"
+        },
+        {
+          "description": "The namespace data that define the rule groups."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IdempotencyToken"
+        },
+        {
+          "description": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request."
+        }
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

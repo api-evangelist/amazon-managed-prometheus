@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-rule-groups-namespace-name-structure.json",
+  "name": "RuleGroupsNamespaceName",
+  "description": "The namespace name that the rule group belong to.",
+  "type": "string",
+  "pattern": ".*[0-9A-Za-z][-.0-9A-Z_a-z]*.*"
+}

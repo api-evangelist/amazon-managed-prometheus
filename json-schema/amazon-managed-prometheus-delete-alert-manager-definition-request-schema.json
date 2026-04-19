@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-schema/amazon-managed-prometheus-delete-alert-manager-definition-request-schema.json",
+  "title": "DeleteAlertManagerDefinitionRequest",
+  "description": "Represents the input of a DeleteAlertManagerDefinition operation.",
+  "type": "object",
+  "properties": {}
+}

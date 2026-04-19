@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-idempotency-token-structure.json",
+  "name": "IdempotencyToken",
+  "description": "An identifier used to ensure the idempotency of a write request.",
+  "type": "string",
+  "pattern": "[!-~]+"
+}

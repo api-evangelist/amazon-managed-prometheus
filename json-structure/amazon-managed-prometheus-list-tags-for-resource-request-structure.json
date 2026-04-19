@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-list-tags-for-resource-request-structure.json",
+  "name": "ListTagsForResourceRequest",
+  "description": "ListTagsForResourceRequest schema from Amazon Managed Service for Prometheus API",
+  "type": "object",
+  "properties": {}
+}

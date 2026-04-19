@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-create-rule-groups-namespace-response-structure.json",
+  "name": "CreateRuleGroupsNamespaceResponse",
+  "description": "Represents the output of a CreateRuleGroupsNamespace operation.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RuleGroupsNamespaceName"
+        },
+        {
+          "description": "The rule groups namespace name."
+        }
+      ]
+    },
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RuleGroupsNamespaceArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of this rule groups namespace."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RuleGroupsNamespaceStatus"
+        },
+        {
+          "description": "The status of rule groups namespace."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The tags of this rule groups namespace."
+        }
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "arn",
+    "status"
+  ]
+}

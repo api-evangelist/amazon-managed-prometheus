@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-list-rule-groups-namespaces-response-structure.json",
+  "name": "ListRuleGroupsNamespacesResponse",
+  "description": "Represents the output of a ListRuleGroupsNamespaces operation.",
+  "type": "object",
+  "properties": {
+    "ruleGroupsNamespaces": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RuleGroupsNamespaceSummaryList"
+        },
+        {
+          "description": "The list of the selected rule groups namespaces."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "Pagination token to use when requesting the next page in this list."
+        }
+      ]
+    }
+  },
+  "required": [
+    "ruleGroupsNamespaces"
+  ]
+}

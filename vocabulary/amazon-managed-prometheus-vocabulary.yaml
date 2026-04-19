@@ -1,0 +1,101 @@
+vocabulary: "1.0.0"
+info:
+  provider: "Amazon Managed Service for Prometheus"
+  description: "Vocabulary for Amazon Managed Service for Prometheus covering workspace management, alert configuration, and rule group operations."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+operational:
+  apis:
+    - namespace: managed-prometheus
+      version: "2020-08-01"
+      baseUrl: https://aps.amazonaws.com
+      status: active
+  resources:
+    - name: workspaces
+      apis: [managed-prometheus]
+      actions: [create, list, describe, update, delete]
+    - name: alert-manager-definitions
+      apis: [managed-prometheus]
+      actions: [create, describe, put, delete]
+    - name: rule-groups-namespaces
+      apis: [managed-prometheus]
+      actions: [create, list, describe, put, delete]
+    - name: scrapers
+      apis: [managed-prometheus]
+      actions: [create, list, describe, delete]
+    - name: logging-configurations
+      apis: [managed-prometheus]
+      actions: [create, describe, update, delete]
+  actions:
+    - name: create
+      httpMethods: [POST]
+      pattern: write
+    - name: list
+      httpMethods: [GET]
+      pattern: read
+    - name: describe
+      httpMethods: [GET]
+      pattern: read
+    - name: update
+      httpMethods: [PUT]
+      pattern: write
+    - name: delete
+      httpMethods: [DELETE]
+      pattern: destructive
+    - name: put
+      httpMethods: [PUT]
+      pattern: write
+  enums:
+    workspace-status:
+      - CREATING
+      - ACTIVE
+      - UPDATING
+      - DELETING
+      - CREATION_FAILED
+    scraper-status:
+      - CREATING
+      - ACTIVE
+      - DELETING
+      - CREATION_FAILED
+      - DELETION_FAILED
+  authentication:
+    schemes:
+      - type: aws-sigv4
+        name: AWS Signature Version 4
+        apis: [managed-prometheus]
+capability:
+  workflows:
+    - name: Metrics Monitoring Workflow
+      file: capabilities/metrics-monitoring-workflow.yaml
+      apisComposed: [managed-prometheus]
+      toolCount: 6
+      personas: [DevOps Engineer, SRE]
+  personas:
+    - id: devops-engineer
+      name: "DevOps Engineer"
+      workflows: [Metrics Monitoring Workflow]
+    - id: sre
+      name: "SRE"
+      workflows: [Metrics Monitoring Workflow]
+  namespaces:
+    - name: managed-prometheus
+      type: consumed
+    - name: prometheus-monitoring-api
+      type: rest-exposed
+      port: 8080
+    - name: prometheus-monitoring-mcp
+      type: mcp-exposed
+      port: 9090
+crossReference:
+  - resource: workspaces
+    operations: [CreateWorkspace, ListWorkspaces, DescribeWorkspace, UpdateWorkspace, DeleteWorkspace]
+    workflows: [Metrics Monitoring Workflow]
+    personas: [DevOps Engineer, SRE]
+  - resource: alert-manager-definitions
+    operations: [CreateAlertManagerDefinition, DescribeAlertManagerDefinition, PutAlertManagerDefinition]
+    workflows: [Metrics Monitoring Workflow]
+    personas: [SRE]
+  - resource: rule-groups-namespaces
+    operations: [CreateRuleGroupsNamespace, ListRuleGroupsNamespaces, DescribeRuleGroupsNamespace]
+    workflows: [Metrics Monitoring Workflow]
+    personas: [DevOps Engineer, SRE]

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-tag-keys-structure.json",
+  "name": "TagKeys",
+  "description": "TagKeys schema from Amazon Managed Service for Prometheus API",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/TagKey"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-rule-groups-namespace-status-structure.json",
+  "name": "RuleGroupsNamespaceStatus",
+  "description": "Represents the status of a namespace.",
+  "type": "object",
+  "properties": {
+    "statusCode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RuleGroupsNamespaceStatusCode"
+        },
+        {
+          "description": "Status code of this namespace."
+        }
+      ]
+    },
+    "statusReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The reason for failure if any."
+        }
+      ]
+    }
+  },
+  "required": [
+    "statusCode"
+  ]
+}

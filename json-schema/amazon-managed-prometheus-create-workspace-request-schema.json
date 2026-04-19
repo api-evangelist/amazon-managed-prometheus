@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-schema/amazon-managed-prometheus-create-workspace-request-schema.json",
+  "title": "CreateWorkspaceRequest",
+  "description": "Represents the input of a CreateWorkspace operation.",
+  "type": "object",
+  "properties": {
+    "alias": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceAlias"
+        },
+        {
+          "description": "An optional user-assigned alias for this workspace. This alias is for user reference and does not need to be unique."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IdempotencyToken"
+        },
+        {
+          "description": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "Optional, user-provided tags for this workspace."
+        }
+      ]
+    }
+  }
+}

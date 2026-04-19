@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-rule-groups-namespace-arn-structure.json",
+  "name": "RuleGroupsNamespaceArn",
+  "description": "An ARN identifying a rule groups namespace.",
+  "type": "string"
+}

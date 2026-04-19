@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-describe-workspace-response-structure.json",
+  "name": "DescribeWorkspaceResponse",
+  "description": "Represents the output of a DescribeWorkspace operation.",
+  "type": "object",
+  "properties": {
+    "workspace": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WorkspaceDescription"
+        },
+        {
+          "description": "The properties of the selected workspace."
+        }
+      ]
+    }
+  },
+  "required": [
+    "workspace"
+  ]
+}

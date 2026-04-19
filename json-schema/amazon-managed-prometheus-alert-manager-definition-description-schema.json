@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-schema/amazon-managed-prometheus-alert-manager-definition-description-schema.json",
+  "title": "AlertManagerDefinitionDescription",
+  "description": "Represents the properties of an alert manager definition.",
+  "type": "object",
+  "properties": {
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AlertManagerDefinitionStatus"
+        },
+        {
+          "description": "The status of alert manager definition."
+        }
+      ]
+    },
+    "data": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AlertManagerDefinitionData"
+        },
+        {
+          "description": "The alert manager definition."
+        }
+      ]
+    },
+    "createdAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time when the alert manager definition was created."
+        }
+      ]
+    },
+    "modifiedAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time when the alert manager definition was modified."
+        }
+      ]
+    }
+  },
+  "required": [
+    "status",
+    "data",
+    "createdAt",
+    "modifiedAt"
+  ]
+}

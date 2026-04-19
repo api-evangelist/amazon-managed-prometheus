@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-schema/amazon-managed-prometheus-tag-resource-request-schema.json",
+  "title": "TagResourceRequest",
+  "description": "TagResourceRequest schema from Amazon Managed Service for Prometheus API",
+  "type": "object",
+  "properties": {
+    "tags": {
+      "$ref": "#/components/schemas/TagMap"
+    }
+  },
+  "required": [
+    "tags"
+  ]
+}

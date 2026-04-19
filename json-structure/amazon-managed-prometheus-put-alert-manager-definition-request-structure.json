@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-put-alert-manager-definition-request-structure.json",
+  "name": "PutAlertManagerDefinitionRequest",
+  "description": "Represents the input of a PutAlertManagerDefinition operation.",
+  "type": "object",
+  "properties": {
+    "data": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AlertManagerDefinitionData"
+        },
+        {
+          "description": "The alert manager definition data."
+        }
+      ]
+    },
+    "clientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IdempotencyToken"
+        },
+        {
+          "description": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request."
+        }
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

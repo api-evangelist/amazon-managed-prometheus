@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-describe-alert-manager-definition-response-structure.json",
+  "name": "DescribeAlertManagerDefinitionResponse",
+  "description": "Represents the output of a DescribeAlertManagerDefinition operation.",
+  "type": "object",
+  "properties": {
+    "alertManagerDefinition": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AlertManagerDefinitionDescription"
+        },
+        {
+          "description": "The properties of the selected workspace's alert manager definition."
+        }
+      ]
+    }
+  },
+  "required": [
+    "alertManagerDefinition"
+  ]
+}

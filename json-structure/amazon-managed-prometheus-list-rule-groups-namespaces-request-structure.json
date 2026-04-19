@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-list-rule-groups-namespaces-request-structure.json",
+  "name": "ListRuleGroupsNamespacesRequest",
+  "description": "Represents the input of a ListRuleGroupsNamespaces operation.",
+  "type": "object",
+  "properties": {}
+}

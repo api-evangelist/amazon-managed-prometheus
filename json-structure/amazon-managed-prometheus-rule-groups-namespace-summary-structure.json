@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-rule-groups-namespace-summary-structure.json",
+  "name": "RuleGroupsNamespaceSummary",
+  "description": "Represents a summary of the rule groups namespace.",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RuleGroupsNamespaceArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of this rule groups namespace."
+        }
+      ]
+    },
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RuleGroupsNamespaceName"
+        },
+        {
+          "description": "The rule groups namespace name."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RuleGroupsNamespaceStatus"
+        },
+        {
+          "description": "The status of rule groups namespace."
+        }
+      ]
+    },
+    "createdAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time when the rule groups namespace was created."
+        }
+      ]
+    },
+    "modifiedAt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time when the rule groups namespace was modified."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The tags of this rule groups namespace."
+        }
+      ]
+    }
+  },
+  "required": [
+    "arn",
+    "name",
+    "status",
+    "createdAt",
+    "modifiedAt"
+  ]
+}

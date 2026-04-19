@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-workspace-summary-list-structure.json",
+  "name": "WorkspaceSummaryList",
+  "description": "A list of workspace summaries.",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/WorkspaceSummary"
+  }
+}

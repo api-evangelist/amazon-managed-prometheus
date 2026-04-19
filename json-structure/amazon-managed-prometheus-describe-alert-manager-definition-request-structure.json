@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/json-structure/amazon-managed-prometheus-describe-alert-manager-definition-request-structure.json",
+  "name": "DescribeAlertManagerDefinitionRequest",
+  "description": "Represents the input of a DescribeAlertManagerDefinition operation.",
+  "type": "object",
+  "properties": {}
+}
