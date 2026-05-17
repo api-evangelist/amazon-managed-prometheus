@@ -51,7 +51,7 @@ apis:
         url: json-schema/amazon-managed-prometheus-workspace-summary-schema.json
       - type: JSONStructure
         url: json-structure/amazon-managed-prometheus-workspace-summary-structure.json
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/amazon-managed-prometheus-context.jsonld
 common:
   - type: Portal
