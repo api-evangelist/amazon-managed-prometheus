@@ -1,0 +1,979 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Prometheus Service
+  description: 'Amazon Prometheus Service. 21 operations. Lead operation: Amazon Managed Service for Prometheus List Tags
+    for Resource. Self-contained Naftiko capability covering one Amazon Managed Prometheus business surface.'
+  tags:
+  - Amazon Managed Prometheus
+  - Amazon Prometheus Service
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_MANAGED_PROMETHEUS_API_KEY: AMAZON_MANAGED_PROMETHEUS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-managed-prometheus
+    baseUri: http://aps.{region}.amazonaws.com
+    description: Amazon Prometheus Service business capability. Self-contained, no shared references.
+    resources:
+    - name: tags-resourceArn
+      path: /tags/{resourceArn}
+      operations:
+      - name: listtagsforresource
+        method: GET
+        description: Amazon Managed Service for Prometheus List Tags for Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceArn
+          in: path
+          type: string
+          description: The ARN of the resource.
+          required: true
+      - name: tagresource
+        method: POST
+        description: Amazon Managed Service for Prometheus Tag Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceArn
+          in: path
+          type: string
+          description: The ARN of the resource.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: tags-resourceArn}#tagKeys
+      path: /tags/{resourceArn}#tagKeys
+      operations:
+      - name: untagresource
+        method: DELETE
+        description: Amazon Managed Service for Prometheus Untag Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceArn
+          in: path
+          type: string
+          description: The ARN of the resource.
+          required: true
+        - name: tagKeys
+          in: query
+          type: array
+          description: One or more tag keys
+          required: true
+    - name: workspaces
+      path: /workspaces
+      operations:
+      - name: createworkspace
+        method: POST
+        description: Amazon Managed Service for Prometheus Create Workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: listworkspaces
+        method: GET
+        description: Amazon Managed Service for Prometheus List Workspaces
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token to request the next page in a paginated list. This token is obtained from the output
+            of the previous ListWorkspaces request.
+        - name: alias
+          in: query
+          type: string
+          description: Optional filter for workspace alias. Only the workspaces with aliases that begin with this value will
+            be returned.
+        - name: maxResults
+          in: query
+          type: integer
+          description: Maximum results to return in response (default=100, maximum=1000).
+    - name: workspaces-workspaceId
+      path: /workspaces/{workspaceId}
+      operations:
+      - name: deleteworkspace
+        method: DELETE
+        description: Amazon Managed Service for Prometheus Delete Workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace to delete.
+          required: true
+        - name: clientToken
+          in: query
+          type: string
+          description: Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
+      - name: describeworkspace
+        method: GET
+        description: Amazon Managed Service for Prometheus Describe Workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace to describe.
+          required: true
+    - name: workspaces-workspaceId-alertmanager-definition
+      path: /workspaces/{workspaceId}/alertmanager/definition
+      operations:
+      - name: createalertmanagerdefinition
+        method: POST
+        description: Amazon Managed Service for Prometheus Create Alert Manager Definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace in which to create the alert manager definition.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletealertmanagerdefinition
+        method: DELETE
+        description: Amazon Managed Service for Prometheus Delete Alert Manager Definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace in which to delete the alert manager definition.
+          required: true
+        - name: clientToken
+          in: query
+          type: string
+          description: Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
+      - name: describealertmanagerdefinition
+        method: GET
+        description: Amazon Managed Service for Prometheus Describe Alert Manager Definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace to describe.
+          required: true
+      - name: putalertmanagerdefinition
+        method: PUT
+        description: Amazon Managed Service for Prometheus Put Alert Manager Definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace in which to update the alert manager definition.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-workspaceId-alias
+      path: /workspaces/{workspaceId}/alias
+      operations:
+      - name: updateworkspacealias
+        method: POST
+        description: Amazon Managed Service for Prometheus Update Workspace Alias
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace being updated.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-workspaceId-logging
+      path: /workspaces/{workspaceId}/logging
+      operations:
+      - name: createloggingconfiguration
+        method: POST
+        description: Amazon Managed Service for Prometheus Create Logging Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace to vend logs to.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteloggingconfiguration
+        method: DELETE
+        description: Amazon Managed Service for Prometheus Delete Logging Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace to vend logs to.
+          required: true
+        - name: clientToken
+          in: query
+          type: string
+          description: Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
+      - name: describeloggingconfiguration
+        method: GET
+        description: Amazon Managed Service for Prometheus Describe Logging Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace to vend logs to.
+          required: true
+      - name: updateloggingconfiguration
+        method: PUT
+        description: Amazon Managed Service for Prometheus Update Logging Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace to vend logs to.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-workspaceId-rulegroupsnamespaces
+      path: /workspaces/{workspaceId}/rulegroupsnamespaces
+      operations:
+      - name: createrulegroupsnamespace
+        method: POST
+        description: Amazon Managed Service for Prometheus Create Rule Groups Namespace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace in which to create the rule group namespace.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: listrulegroupsnamespaces
+        method: GET
+        description: Amazon Managed Service for Prometheus List Rule Groups Namespaces
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace.
+          required: true
+        - name: name
+          in: query
+          type: string
+          description: Optional filter for rule groups namespace name. Only the rule groups namespace that begin with this
+            value will be returned.
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token to request the next page in a paginated list. This token is obtained from the output
+            of the previous ListRuleGroupsNamespaces request.
+        - name: maxResults
+          in: query
+          type: integer
+          description: Maximum results to return in response (default=100, maximum=1000).
+    - name: workspaces-workspaceId-rulegroupsnamespaces-name
+      path: /workspaces/{workspaceId}/rulegroupsnamespaces/{name}
+      operations:
+      - name: deleterulegroupsnamespace
+        method: DELETE
+        description: Amazon Managed Service for Prometheus Delete Rule Groups Namespace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace to delete rule group definition.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The rule groups namespace name.
+          required: true
+        - name: clientToken
+          in: query
+          type: string
+          description: Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
+      - name: describerulegroupsnamespace
+        method: GET
+        description: Amazon Managed Service for Prometheus Describe Rule Groups Namespace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace to describe.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The rule groups namespace.
+          required: true
+      - name: putrulegroupsnamespace
+        method: PUT
+        description: Amazon Managed Service for Prometheus Put Rule Groups Namespace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace in which to update the rule group namespace.
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The rule groups namespace name.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_MANAGED_PROMETHEUS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-managed-prometheus-rest
+    port: 8080
+    description: REST adapter for Amazon Prometheus Service. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/tags/{resourcearn}
+      name: tags-resourcearn
+      description: REST surface for tags-resourceArn.
+      operations:
+      - method: GET
+        name: listtagsforresource
+        description: Amazon Managed Service for Prometheus List Tags for Resource
+        call: amazon-managed-prometheus.listtagsforresource
+        with:
+          resourceArn: rest.resourceArn
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: tagresource
+        description: Amazon Managed Service for Prometheus Tag Resource
+        call: amazon-managed-prometheus.tagresource
+        with:
+          resourceArn: rest.resourceArn
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tags/resourcearn-tagkeys
+      name: tags-resourcearn-tagkeys
+      description: REST surface for tags-resourceArn}#tagKeys.
+      operations:
+      - method: DELETE
+        name: untagresource
+        description: Amazon Managed Service for Prometheus Untag Resource
+        call: amazon-managed-prometheus.untagresource
+        with:
+          resourceArn: rest.resourceArn
+          tagKeys: rest.tagKeys
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces
+      name: workspaces
+      description: REST surface for workspaces.
+      operations:
+      - method: POST
+        name: createworkspace
+        description: Amazon Managed Service for Prometheus Create Workspace
+        call: amazon-managed-prometheus.createworkspace
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: listworkspaces
+        description: Amazon Managed Service for Prometheus List Workspaces
+        call: amazon-managed-prometheus.listworkspaces
+        with:
+          nextToken: rest.nextToken
+          alias: rest.alias
+          maxResults: rest.maxResults
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}
+      name: workspaces-workspaceid
+      description: REST surface for workspaces-workspaceId.
+      operations:
+      - method: DELETE
+        name: deleteworkspace
+        description: Amazon Managed Service for Prometheus Delete Workspace
+        call: amazon-managed-prometheus.deleteworkspace
+        with:
+          workspaceId: rest.workspaceId
+          clientToken: rest.clientToken
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: describeworkspace
+        description: Amazon Managed Service for Prometheus Describe Workspace
+        call: amazon-managed-prometheus.describeworkspace
+        with:
+          workspaceId: rest.workspaceId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/alertmanager/definition
+      name: workspaces-workspaceid-alertmanager-definition
+      description: REST surface for workspaces-workspaceId-alertmanager-definition.
+      operations:
+      - method: POST
+        name: createalertmanagerdefinition
+        description: Amazon Managed Service for Prometheus Create Alert Manager Definition
+        call: amazon-managed-prometheus.createalertmanagerdefinition
+        with:
+          workspaceId: rest.workspaceId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletealertmanagerdefinition
+        description: Amazon Managed Service for Prometheus Delete Alert Manager Definition
+        call: amazon-managed-prometheus.deletealertmanagerdefinition
+        with:
+          workspaceId: rest.workspaceId
+          clientToken: rest.clientToken
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: describealertmanagerdefinition
+        description: Amazon Managed Service for Prometheus Describe Alert Manager Definition
+        call: amazon-managed-prometheus.describealertmanagerdefinition
+        with:
+          workspaceId: rest.workspaceId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putalertmanagerdefinition
+        description: Amazon Managed Service for Prometheus Put Alert Manager Definition
+        call: amazon-managed-prometheus.putalertmanagerdefinition
+        with:
+          workspaceId: rest.workspaceId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/alias
+      name: workspaces-workspaceid-alias
+      description: REST surface for workspaces-workspaceId-alias.
+      operations:
+      - method: POST
+        name: updateworkspacealias
+        description: Amazon Managed Service for Prometheus Update Workspace Alias
+        call: amazon-managed-prometheus.updateworkspacealias
+        with:
+          workspaceId: rest.workspaceId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/logging
+      name: workspaces-workspaceid-logging
+      description: REST surface for workspaces-workspaceId-logging.
+      operations:
+      - method: POST
+        name: createloggingconfiguration
+        description: Amazon Managed Service for Prometheus Create Logging Configuration
+        call: amazon-managed-prometheus.createloggingconfiguration
+        with:
+          workspaceId: rest.workspaceId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteloggingconfiguration
+        description: Amazon Managed Service for Prometheus Delete Logging Configuration
+        call: amazon-managed-prometheus.deleteloggingconfiguration
+        with:
+          workspaceId: rest.workspaceId
+          clientToken: rest.clientToken
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: describeloggingconfiguration
+        description: Amazon Managed Service for Prometheus Describe Logging Configuration
+        call: amazon-managed-prometheus.describeloggingconfiguration
+        with:
+          workspaceId: rest.workspaceId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateloggingconfiguration
+        description: Amazon Managed Service for Prometheus Update Logging Configuration
+        call: amazon-managed-prometheus.updateloggingconfiguration
+        with:
+          workspaceId: rest.workspaceId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/rulegroupsnamespaces
+      name: workspaces-workspaceid-rulegroupsnamespaces
+      description: REST surface for workspaces-workspaceId-rulegroupsnamespaces.
+      operations:
+      - method: POST
+        name: createrulegroupsnamespace
+        description: Amazon Managed Service for Prometheus Create Rule Groups Namespace
+        call: amazon-managed-prometheus.createrulegroupsnamespace
+        with:
+          workspaceId: rest.workspaceId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: listrulegroupsnamespaces
+        description: Amazon Managed Service for Prometheus List Rule Groups Namespaces
+        call: amazon-managed-prometheus.listrulegroupsnamespaces
+        with:
+          workspaceId: rest.workspaceId
+          name: rest.name
+          nextToken: rest.nextToken
+          maxResults: rest.maxResults
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/rulegroupsnamespaces/{name}
+      name: workspaces-workspaceid-rulegroupsnamespaces-name
+      description: REST surface for workspaces-workspaceId-rulegroupsnamespaces-name.
+      operations:
+      - method: DELETE
+        name: deleterulegroupsnamespace
+        description: Amazon Managed Service for Prometheus Delete Rule Groups Namespace
+        call: amazon-managed-prometheus.deleterulegroupsnamespace
+        with:
+          workspaceId: rest.workspaceId
+          name: rest.name
+          clientToken: rest.clientToken
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: describerulegroupsnamespace
+        description: Amazon Managed Service for Prometheus Describe Rule Groups Namespace
+        call: amazon-managed-prometheus.describerulegroupsnamespace
+        with:
+          workspaceId: rest.workspaceId
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putrulegroupsnamespace
+        description: Amazon Managed Service for Prometheus Put Rule Groups Namespace
+        call: amazon-managed-prometheus.putrulegroupsnamespace
+        with:
+          workspaceId: rest.workspaceId
+          name: rest.name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-managed-prometheus-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Prometheus Service. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: amazon-managed-service-prometheus-list
+      description: Amazon Managed Service for Prometheus List Tags for Resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-managed-prometheus.listtagsforresource
+      with:
+        resourceArn: tools.resourceArn
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-tag
+      description: Amazon Managed Service for Prometheus Tag Resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-managed-prometheus.tagresource
+      with:
+        resourceArn: tools.resourceArn
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-untag
+      description: Amazon Managed Service for Prometheus Untag Resource
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-managed-prometheus.untagresource
+      with:
+        resourceArn: tools.resourceArn
+        tagKeys: tools.tagKeys
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-create
+      description: Amazon Managed Service for Prometheus Create Workspace
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-managed-prometheus.createworkspace
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-list-2
+      description: Amazon Managed Service for Prometheus List Workspaces
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-managed-prometheus.listworkspaces
+      with:
+        nextToken: tools.nextToken
+        alias: tools.alias
+        maxResults: tools.maxResults
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-delete
+      description: Amazon Managed Service for Prometheus Delete Workspace
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-managed-prometheus.deleteworkspace
+      with:
+        workspaceId: tools.workspaceId
+        clientToken: tools.clientToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-describe
+      description: Amazon Managed Service for Prometheus Describe Workspace
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-managed-prometheus.describeworkspace
+      with:
+        workspaceId: tools.workspaceId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-create-2
+      description: Amazon Managed Service for Prometheus Create Alert Manager Definition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-managed-prometheus.createalertmanagerdefinition
+      with:
+        workspaceId: tools.workspaceId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-delete-2
+      description: Amazon Managed Service for Prometheus Delete Alert Manager Definition
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-managed-prometheus.deletealertmanagerdefinition
+      with:
+        workspaceId: tools.workspaceId
+        clientToken: tools.clientToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-describe-2
+      description: Amazon Managed Service for Prometheus Describe Alert Manager Definition
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-managed-prometheus.describealertmanagerdefinition
+      with:
+        workspaceId: tools.workspaceId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-put
+      description: Amazon Managed Service for Prometheus Put Alert Manager Definition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-managed-prometheus.putalertmanagerdefinition
+      with:
+        workspaceId: tools.workspaceId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-update
+      description: Amazon Managed Service for Prometheus Update Workspace Alias
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-managed-prometheus.updateworkspacealias
+      with:
+        workspaceId: tools.workspaceId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-create-3
+      description: Amazon Managed Service for Prometheus Create Logging Configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-managed-prometheus.createloggingconfiguration
+      with:
+        workspaceId: tools.workspaceId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-delete-3
+      description: Amazon Managed Service for Prometheus Delete Logging Configuration
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-managed-prometheus.deleteloggingconfiguration
+      with:
+        workspaceId: tools.workspaceId
+        clientToken: tools.clientToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-describe-3
+      description: Amazon Managed Service for Prometheus Describe Logging Configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-managed-prometheus.describeloggingconfiguration
+      with:
+        workspaceId: tools.workspaceId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-update-2
+      description: Amazon Managed Service for Prometheus Update Logging Configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-managed-prometheus.updateloggingconfiguration
+      with:
+        workspaceId: tools.workspaceId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-create-4
+      description: Amazon Managed Service for Prometheus Create Rule Groups Namespace
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-managed-prometheus.createrulegroupsnamespace
+      with:
+        workspaceId: tools.workspaceId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-list-3
+      description: Amazon Managed Service for Prometheus List Rule Groups Namespaces
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-managed-prometheus.listrulegroupsnamespaces
+      with:
+        workspaceId: tools.workspaceId
+        name: tools.name
+        nextToken: tools.nextToken
+        maxResults: tools.maxResults
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-delete-4
+      description: Amazon Managed Service for Prometheus Delete Rule Groups Namespace
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-managed-prometheus.deleterulegroupsnamespace
+      with:
+        workspaceId: tools.workspaceId
+        name: tools.name
+        clientToken: tools.clientToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-describe-4
+      description: Amazon Managed Service for Prometheus Describe Rule Groups Namespace
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-managed-prometheus.describerulegroupsnamespace
+      with:
+        workspaceId: tools.workspaceId
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-managed-service-prometheus-put-2
+      description: Amazon Managed Service for Prometheus Put Rule Groups Namespace
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-managed-prometheus.putrulegroupsnamespace
+      with:
+        workspaceId: tools.workspaceId
+        name: tools.name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
