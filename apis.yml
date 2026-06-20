@@ -5,7 +5,7 @@ description: Amazon Managed Service for Prometheus is a serverless, Prometheus-c
   EKS and other container environments. The service provides fully managed workspaces, alert manager definitions, and rule
   group namespaces for Prometheus-compatible monitoring at scale.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - AWS
 - Containers
