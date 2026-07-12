@@ -49,6 +49,14 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-managed-prometheus.yaml
 common:
+- type: TrustCenter
+  url: security/amazon-managed-prometheus-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/amazon-managed-prometheus-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/amazon-managed-prometheus-domain-security.yml
+- type: Authentication
+  url: authentication/amazon-managed-prometheus-authentication.yml
 - type: Portal
   url: https://aws.amazon.com/prometheus/
 - type: Documentation
