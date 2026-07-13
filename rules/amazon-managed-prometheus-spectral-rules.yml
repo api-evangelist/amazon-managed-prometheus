@@ -1,135 +1,188 @@
+# amazon-managed-prometheus — Spectral ruleset (strengthened)
+# Plain Spectral. Existing hand-authored rules preserved; measured rules added
+# from this provider's own OpenAPI conventions by strengthen_ruleset.py,
+# then self-validated against the spec.
+#
+# Provenance:
+#   - servers-https-only: 50% of servers already https (warn)
+#   - path-params-casing: camel @ 86% (n=22)
+#   - query-params-casing: camel @ 82% (n=11)
+#   - operationid-casing: pascal @ 100% (n=21)
+#   - schema-names-casing: pascal @ 100% (n=79)
+#   - schema-properties-casing: snake @ 56% (n=87)
+#   - security: global (root) — NOT emitting operation-security-required
+#   - pagination params observed: ['maxResults', 'nextToken']
+#   - merge: kept 18 existing, added 4 measured, upgraded 0
+#   - added: query-params-casing, operationid-casing, schema-names-casing, schema-properties-casing
+extends:
+  - spectral:oas
 rules:
   info-title-required:
     description: Info title must be present
     severity: error
-    given: "$.info"
+    given: $.info
     then:
       field: title
       function: truthy
   info-description-required:
     description: Info description must be present
     severity: warn
-    given: "$.info"
+    given: $.info
     then:
       field: description
       function: truthy
   info-version-required:
     description: API version must be defined
     severity: error
-    given: "$.info"
+    given: $.info
     then:
       field: version
       function: truthy
   openapi-version:
     description: Must use OpenAPI 3.0.x
     severity: error
-    given: "$"
+    given: $
     then:
       field: openapi
       function: pattern
       functionOptions:
-        match: "^3\\.0\\."
+        match: ^3\.0\.
   servers-required:
     description: Servers must be defined
     severity: error
-    given: "$"
+    given: $
     then:
       field: servers
       function: truthy
   servers-https:
     description: Server URLs should use HTTPS
     severity: warn
-    given: "$.servers[*]"
+    given: $.servers[*]
     then:
       field: url
       function: pattern
       functionOptions:
-        match: "^https://"
+        match: ^https://
   operation-operationId-required:
     description: Every operation must have an operationId
     severity: error
-    given: "$.paths[*][get,post,put,patch,delete]"
+    given: $.paths[*][get,post,put,patch,delete]
     then:
       field: operationId
       function: truthy
   operation-summary-required:
     description: Every operation must have a summary
     severity: warn
-    given: "$.paths[*][get,post,put,patch,delete]"
+    given: $.paths[*][get,post,put,patch,delete]
     then:
       field: summary
       function: truthy
   operation-summary-prefix:
     description: Operation summaries should start with "Amazon Managed Service for Prometheus"
     severity: info
-    given: "$.paths[*][get,post,put,patch,delete].summary"
+    given: $.paths[*][get,post,put,patch,delete].summary
     then:
       function: pattern
       functionOptions:
-        match: "^Amazon Managed Service for Prometheus"
+        match: ^Amazon Managed Service for Prometheus
   operation-tags-required:
     description: Every operation must have at least one tag
     severity: warn
-    given: "$.paths[*][get,post,put,patch,delete]"
+    given: $.paths[*][get,post,put,patch,delete]
     then:
       field: tags
       function: truthy
   parameter-description-required:
     description: All parameters must have descriptions
     severity: warn
-    given: "$.paths[*][get,post,put,patch,delete].parameters[*]"
+    given: $.paths[*][get,post,put,patch,delete].parameters[*]
     then:
       field: description
       function: truthy
   response-description-required:
     description: All responses must have a description
     severity: warn
-    given: "$.paths[*][get,post,put,patch,delete].responses[*]"
+    given: $.paths[*][get,post,put,patch,delete].responses[*]
     then:
       field: description
       function: truthy
   schema-description:
     description: Top-level schemas should have descriptions
     severity: info
-    given: "$.components.schemas[*]"
+    given: $.components.schemas[*]
     then:
       field: description
       function: truthy
   security-schemes-required:
     description: Security schemes must be defined
     severity: error
-    given: "$.components"
+    given: $.components
     then:
       field: securitySchemes
       function: truthy
   http-get-no-body:
     description: GET operations should not have request bodies
     severity: error
-    given: "$.paths[*].get"
+    given: $.paths[*].get
     then:
       field: requestBody
       function: falsy
   no-empty-descriptions:
     description: Descriptions should not be empty strings
     severity: warn
-    given: "$..description"
+    given: $..description
     then:
       function: pattern
       functionOptions:
-        match: ".+"
+        match: .+
   paths-kebab-case:
     description: Path segments should use kebab-case
     severity: info
-    given: "$.paths"
+    given: $.paths
     then:
-      field: "@key"
+      field: '@key'
       function: pattern
       functionOptions:
-        match: "^(/[a-z0-9{}_.\\-]+)+$"
+        match: ^(/[a-z0-9{}_.\-]+)+$
   examples-encouraged:
     description: Schema properties should include examples
     severity: info
-    given: "$.components.schemas[*].properties[*]"
+    given: $.components.schemas[*].properties[*]
     then:
       field: example
       function: truthy
+  query-params-casing:
+    description: Query parameters should be camelCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].parameters[?(@.in=='query')]
+    then:
+      field: name
+      function: casing
+      functionOptions:
+        type: camel
+  operationid-casing:
+    description: Operation IDs should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].operationId
+    then:
+      function: casing
+      functionOptions:
+        type: pascal
+  schema-names-casing:
+    description: Component schema names should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.components.schemas
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: pascal
+  schema-properties-casing:
+    description: Schema properties should be snake_case (the dominant convention in this API).
+    severity: info
+    given: $.components.schemas[*].properties
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: snake
