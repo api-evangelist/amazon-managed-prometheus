@@ -49,6 +49,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-managed-prometheus.yaml
 common:
+- type: AgenticAccess
+  url: agentic-access/amazon-managed-prometheus-agentic-access.yml
 - type: TrustCenter
   url: security/amazon-managed-prometheus-trust-center.yml
 - type: VulnerabilityDisclosure
