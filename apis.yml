@@ -5,7 +5,20 @@ description: Amazon Managed Service for Prometheus is a serverless, Prometheus-c
   EKS and other container environments. The service provides fully managed workspaces, alert manager definitions, and rule
   group namespaces for Prometheus-compatible monitoring at scale.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-managed-prometheus.png
 tags:
 - AWS
 - Containers
@@ -17,23 +30,45 @@ created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: amazon-managed-prometheus:amazon-managed-prometheus-api
-  name: Amazon Managed Service for Prometheus API
-  description: The Amazon Managed Service for Prometheus API provides programmatic access to create and manage workspaces,
-    alert manager definitions, rule groups namespaces, logging configurations, and scrapers for Prometheus-compatible monitoring.
-    Covers the full workspace lifecycle and monitoring configuration management.
+- aid: amazon-managed-prometheus:amazon-managed-prometheus-tags-api
+  name: Amazon Managed Service for Prometheus Tags API
+  description: The Tags API from Amazon Managed Service for Prometheus — 2 operation(s) for tags.
   humanURL: https://aws.amazon.com/prometheus/
   baseURL: https://aps.amazonaws.com
   tags:
-  - Containers
-  - Monitoring
-  - Observability
-  - Prometheus
+  - Tags
   properties:
+  - type: OpenAPI
+    url: openapi/amazon-managed-prometheus-tags-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/prometheus/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/prometheus/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/prometheus/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-managed-prometheus-workspace-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/amazon-managed-prometheus-workspace-summary-structure.json
+  - type: JSONLD
+    url: json-ld/amazon-managed-prometheus-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-managed-prometheus.yaml
+- aid: amazon-managed-prometheus:amazon-managed-prometheus-workspaces-api
+  name: Amazon Managed Service for Prometheus Workspaces API
+  description: >-
+    The Workspaces API from Amazon Managed Service for Prometheus — 7 operation(s) for workspaces.
+  humanURL: https://aws.amazon.com/prometheus/
+  baseURL: https://aps.amazonaws.com
+  tags:
+  - Workspaces
+  properties:
   - type: OpenAPI
-    url: openapi/amazon-managed-prometheus-openapi-original.yaml
+    url: openapi/amazon-managed-prometheus-workspaces-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html
   - type: GettingStarted
     url: https://aws.amazon.com/prometheus/getting-started/
   - type: Pricing
@@ -49,6 +84,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-managed-prometheus.yaml
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/amazon-managed-service-for-prometheus/overview
 - type: AgenticAccess
   url: agentic-access/amazon-managed-prometheus-agentic-access.yml
 - type: TrustCenter
