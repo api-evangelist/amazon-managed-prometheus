@@ -1,0 +1,16 @@
+{
+  "provider": "amazon-managed-prometheus",
+  "sources": [
+    "amazon-managed-prometheus-tags-api-openapi.yml",
+    "amazon-managed-prometheus-workspaces-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-managed-prometheus-tags-api-openapi.yml",
+    "amazon-managed-prometheus-workspaces-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
