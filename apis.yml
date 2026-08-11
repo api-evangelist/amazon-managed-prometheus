@@ -54,8 +54,6 @@ apis:
     url: json-structure/amazon-managed-prometheus-workspace-summary-structure.json
   - type: JSONLD
     url: json-ld/amazon-managed-prometheus-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-managed-prometheus.yaml
 - aid: amazon-managed-prometheus:amazon-managed-prometheus-workspaces-api
   name: Amazon Managed Service for Prometheus Workspaces API
   description: >-
@@ -81,8 +79,6 @@ apis:
     url: json-structure/amazon-managed-prometheus-workspace-summary-structure.json
   - type: JSONLD
     url: json-ld/amazon-managed-prometheus-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-managed-prometheus.yaml
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-managed-service-for-prometheus/overview
