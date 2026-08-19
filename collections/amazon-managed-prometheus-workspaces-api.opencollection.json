@@ -1,0 +1,1004 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Prometheus Service Tags Workspaces API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workspaces",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Managed Service for Prometheus Describe Alert Manager Definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://aps.{region}.amazonaws.com/workspaces/:workspaceId/alertmanager/definition",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the workspace to describe."
+              }
+            ]
+          },
+          "docs": "Describes an alert manager definition."
+        },
+        {
+          "info": {
+            "name": "Amazon Managed Service for Prometheus Create Alert Manager Definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://aps.{region}.amazonaws.com/workspaces/:workspaceId/alertmanager/definition",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the workspace in which to create the alert manager definition."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an alert manager definition."
+        },
+        {
+          "info": {
+            "name": "Amazon Managed Service for Prometheus Put Alert Manager Definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://aps.{region}.amazonaws.com/workspaces/:workspaceId/alertmanager/definition",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the workspace in which to update the alert manager definition."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an alert manager definition."
+        },
+        {
+          "info": {
+            "name": "Amazon Managed Service for Prometheus Delete Alert Manager Definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://aps.{region}.amazonaws.com/workspaces/:workspaceId/alertmanager/definition",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the workspace in which to delete the alert manager definition."
+              },
+              {
+                "name": "clientToken",
+                "value": "",
+                "type": "query",
+                "description": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request."
+              }
+            ]
+          },
+          "docs": "Deletes an alert manager definition."
+        },
+        {
+          "info": {
+            "name": "Amazon Managed Service for Prometheus Describe Logging Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://aps.{region}.amazonaws.com/workspaces/:workspaceId/logging",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the workspace to vend logs to."
+              }
+            ]
+          },
+          "docs": "Describes logging configuration."
+        },
+        {
+          "info": {
+            "name": "Amazon Managed Service for Prometheus Create Logging Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://aps.{region}.amazonaws.com/workspaces/:workspaceId/logging",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the workspace to vend logs to."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create logging configuration."
+        },
+        {
+          "info": {
+            "name": "Amazon Managed Service for Prometheus Update Logging Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://aps.{region}.amazonaws.com/workspaces/:workspaceId/logging",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the workspace to vend logs to."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update logging configuration."
+        },
+        {
+          "info": {
+            "name": "Amazon Managed Service for Prometheus Delete Logging Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://aps.{region}.amazonaws.com/workspaces/:workspaceId/logging",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the workspace to vend logs to."
+              },
+              {
+                "name": "clientToken",
+                "value": "",
+                "type": "query",
+                "description": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request."
+              }
+            ]
+          },
+          "docs": "Delete logging configuration."
+        },
+        {
+          "info": {
+            "name": "Amazon Managed Service for Prometheus List Rule Groups Namespaces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://aps.{region}.amazonaws.com/workspaces/:workspaceId/rulegroupsnamespaces",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the workspace."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Optional filter for rule groups namespace name. Only the rule groups namespace that begin with this value will be returned."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token to request the next page in a paginated list. This token is obtained from the output of the previous ListRuleGroupsNamespaces request."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum results to return in response (default=100, maximum=1000)."
+              }
+            ]
+          },
+          "docs": "Lists rule groups namespaces."
+        },
+        {
+          "info": {
+            "name": "Amazon Managed Service for Prometheus Create Rule Groups Namespace",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://aps.{region}.amazonaws.com/workspaces/:workspaceId/rulegroupsnamespaces",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the workspace in which to create the rule group namespace."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a rule group namespace."
+        },
+        {
+          "info": {
+            "name": "Amazon Managed Service for Prometheus List Workspaces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://aps.{region}.amazonaws.com/workspaces",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token to request the next page in a paginated list. This token is obtained from the output of the previous ListWorkspaces request."
+              },
+              {
+                "name": "alias",
+                "value": "",
+                "type": "query",
+                "description": "Optional filter for workspace alias. Only the workspaces with aliases that begin with this value will be returned."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum results to return in response (default=100, maximum=1000)."
+              }
+            ]
+          },
+          "docs": "Lists all AMP workspaces, including workspaces being created or deleted."
+        },
+        {
+          "info": {
+            "name": "Amazon Managed Service for Prometheus Create Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://aps.{region}.amazonaws.com/workspaces",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new AMP workspace."
+        },
+        {
+          "info": {
+            "name": "Amazon Managed Service for Prometheus Describe Rule Groups Namespace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://aps.{region}.amazonaws.com/workspaces/:workspaceId/rulegroupsnamespaces/:name",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the workspace to describe."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The rule groups namespace."
+              }
+            ]
+          },
+          "docs": "Describe a rule groups namespace."
+        },
+        {
+          "info": {
+            "name": "Amazon Managed Service for Prometheus Put Rule Groups Namespace",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://aps.{region}.amazonaws.com/workspaces/:workspaceId/rulegroupsnamespaces/:name",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the workspace in which to update the rule group namespace."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The rule groups namespace name."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a rule groups namespace."
+        },
+        {
+          "info": {
+            "name": "Amazon Managed Service for Prometheus Delete Rule Groups Namespace",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://aps.{region}.amazonaws.com/workspaces/:workspaceId/rulegroupsnamespaces/:name",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the workspace to delete rule group definition."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The rule groups namespace name."
+              },
+              {
+                "name": "clientToken",
+                "value": "",
+                "type": "query",
+                "description": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request."
+              }
+            ]
+          },
+          "docs": "Delete a rule groups namespace."
+        },
+        {
+          "info": {
+            "name": "Amazon Managed Service for Prometheus Describe Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://aps.{region}.amazonaws.com/workspaces/:workspaceId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the workspace to describe."
+              }
+            ]
+          },
+          "docs": "Describes an existing AMP workspace."
+        },
+        {
+          "info": {
+            "name": "Amazon Managed Service for Prometheus Delete Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://aps.{region}.amazonaws.com/workspaces/:workspaceId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the workspace to delete."
+              },
+              {
+                "name": "clientToken",
+                "value": "",
+                "type": "query",
+                "description": "Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request."
+              }
+            ]
+          },
+          "docs": "Deletes an AMP workspace."
+        },
+        {
+          "info": {
+            "name": "Amazon Managed Service for Prometheus Update Workspace Alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://aps.{region}.amazonaws.com/workspaces/:workspaceId/alias",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the workspace being updated."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an AMP workspace alias."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
