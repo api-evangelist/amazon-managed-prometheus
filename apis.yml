@@ -28,7 +28,7 @@ tags:
 url: https://raw.githubusercontent.com/api-evangelist/amazon-managed-prometheus/refs/heads/main/apis.yml
 created: '2026-03-16'
 modified: '2026-05-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: amazon-managed-prometheus:amazon-managed-prometheus-tags-api
   name: Amazon Managed Service for Prometheus Tags API
