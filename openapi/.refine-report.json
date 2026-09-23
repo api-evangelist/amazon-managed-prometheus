@@ -1,8 +1,7 @@
 {
   "provider": "amazon-managed-prometheus",
   "sources": [
-    "amazon-managed-prometheus-tags-api-openapi.yml",
-    "amazon-managed-prometheus-workspaces-api-openapi.yml"
+    "_original/amazon-managed-prometheus-openapi-original.yaml"
   ],
   "outputs": [
     "amazon-managed-prometheus-tags-api-openapi.yml",
@@ -12,7 +11,35 @@
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-managed-prometheus-openapi-original.yaml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths POST /workspaces/{workspaceId}/alertmanager/definition -> Workspaces",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths DELETE /workspaces/{workspaceId}/alertmanager/definition -> Workspaces",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths GET /workspaces/{workspaceId}/alertmanager/definition -> Workspaces",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths PUT /workspaces/{workspaceId}/alertmanager/definition -> Workspaces",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths POST /workspaces/{workspaceId}/logging -> Workspaces",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths DELETE /workspaces/{workspaceId}/logging -> Workspaces",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths GET /workspaces/{workspaceId}/logging -> Workspaces",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths PUT /workspaces/{workspaceId}/logging -> Workspaces",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths POST /workspaces/{workspaceId}/rulegroupsnamespaces -> Workspaces",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths GET /workspaces/{workspaceId}/rulegroupsnamespaces -> Workspaces",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths POST /workspaces -> Workspaces",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths GET /workspaces -> Workspaces",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths DELETE /workspaces/{workspaceId}/rulegroupsnamespaces/{name} -> Workspaces",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths GET /workspaces/{workspaceId}/rulegroupsnamespaces/{name} -> Workspaces",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths PUT /workspaces/{workspaceId}/rulegroupsnamespaces/{name} -> Workspaces",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths DELETE /workspaces/{workspaceId} -> Workspaces",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths GET /workspaces/{workspaceId} -> Workspaces",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths GET /tags/{resourceArn} -> Tags",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths POST /tags/{resourceArn} -> Tags",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths DELETE /tags/{resourceArn}#tagKeys -> Tags",
+    "amazon-managed-prometheus-openapi-original.yaml: tagged paths POST /workspaces/{workspaceId}/alias -> Workspaces",
+    "amazon-managed-prometheus-openapi-original.yaml: declared missing tag: Tags",
+    "amazon-managed-prometheus-openapi-original.yaml: declared missing tag: Workspaces",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-managed-prometheus-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-managed-prometheus-workspaces-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
