@@ -1464,6 +1464,359 @@ paths:
       - Workspaces
 components:
   schemas:
+    ListWorkspacesResponse:
+      type: object
+      required:
+      - workspaces
+      properties:
+        workspaces:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceSummaryList'
+          - description: The list of existing workspaces, including those undergoing creation or deletion.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: Pagination token to use when requesting the next page in this list.
+      description: Represents the output of a ListWorkspaces operation.
+    CreateWorkspaceResponse:
+      type: object
+      required:
+      - workspaceId
+      - arn
+      - status
+      properties:
+        workspaceId:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceId'
+          - description: The generated ID of the workspace that was just created.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceArn'
+          - description: The ARN of the workspace that was just created.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceStatus'
+          - description: The status of the workspace that was just created (usually CREATING).
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The tags of this workspace.
+      description: Represents the output of a CreateWorkspace operation.
+    AlertManagerDefinitionStatusCode:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - UPDATING
+      - DELETING
+      - CREATION_FAILED
+      - UPDATE_FAILED
+      description: State of an alert manager definition.
+    DescribeWorkspaceResponse:
+      type: object
+      required:
+      - workspace
+      properties:
+        workspace:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceDescription'
+          - description: The properties of the selected workspace.
+      description: Represents the output of a DescribeWorkspace operation.
+    TagValue:
+      type: string
+      pattern: ([\p{L}\p{Z}\p{N}_.:/=+\-@]*)
+      minLength: 0
+      maxLength: 256
+    ServiceQuotaExceededException: {}
+    RuleGroupsNamespaceStatus:
+      type: object
+      required:
+      - statusCode
+      properties:
+        statusCode:
+          allOf:
+          - $ref: '#/components/schemas/RuleGroupsNamespaceStatusCode'
+          - description: Status code of this namespace.
+        statusReason:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The reason for failure if any.
+      description: Represents the status of a namespace.
+    WorkspaceStatus:
+      type: object
+      required:
+      - statusCode
+      properties:
+        statusCode:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceStatusCode'
+          - description: Status code of this workspace.
+      description: Represents the status of a workspace.
+    AccessDeniedException: {}
+    String:
+      type: string
+    AlertManagerDefinitionDescription:
+      type: object
+      required:
+      - status
+      - data
+      - createdAt
+      - modifiedAt
+      properties:
+        status:
+          allOf:
+          - $ref: '#/components/schemas/AlertManagerDefinitionStatus'
+          - description: The status of alert manager definition.
+        data:
+          allOf:
+          - $ref: '#/components/schemas/AlertManagerDefinitionData'
+          - description: The alert manager definition.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time when the alert manager definition was created.
+        modifiedAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time when the alert manager definition was modified.
+      description: Represents the properties of an alert manager definition.
+    LoggingConfigurationStatusCode:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - UPDATING
+      - DELETING
+      - CREATION_FAILED
+      - UPDATE_FAILED
+      description: State of a logging configuration.
+    InternalServerException: {}
+    CreateRuleGroupsNamespaceResponse:
+      type: object
+      required:
+      - name
+      - arn
+      - status
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/RuleGroupsNamespaceName'
+          - description: The rule groups namespace name.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/RuleGroupsNamespaceArn'
+          - description: The Amazon Resource Name (ARN) of this rule groups namespace.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/RuleGroupsNamespaceStatus'
+          - description: The status of rule groups namespace.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The tags of this rule groups namespace.
+      description: Represents the output of a CreateRuleGroupsNamespace operation.
+    PaginationToken:
+      type: string
+      description: A token used to access the next page in a paginated result set.
+    WorkspaceArn:
+      type: string
+      description: An ARN identifying a Workspace.
+    WorkspaceSummary:
+      type: object
+      required:
+      - workspaceId
+      - arn
+      - status
+      - createdAt
+      properties:
+        workspaceId:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceId'
+          - description: Unique string identifying this workspace.
+        alias:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceAlias'
+          - description: Alias of this workspace.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceArn'
+          - description: The AmazonResourceName of this workspace.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceStatus'
+          - description: The status of this workspace.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time when the workspace was created.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The tags of this workspace.
+      description: Represents a summary of the properties of a workspace.
+    Timestamp:
+      type: string
+      format: date-time
+    Uri:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    LoggingConfigurationStatus:
+      type: object
+      required:
+      - statusCode
+      properties:
+        statusCode:
+          allOf:
+          - $ref: '#/components/schemas/LoggingConfigurationStatusCode'
+          - description: Status code of the logging configuration.
+        statusReason:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The reason for failure if any.
+      description: Represents the status of a logging configuration.
+    PutAlertManagerDefinitionResponse:
+      type: object
+      required:
+      - status
+      properties:
+        status:
+          allOf:
+          - $ref: '#/components/schemas/AlertManagerDefinitionStatus'
+          - description: The status of alert manager definition.
+      description: Represents the output of a PutAlertManagerDefinition operation.
+    WorkspaceId:
+      type: string
+      pattern: .*[0-9A-Za-z][-.0-9A-Z_a-z]*.*
+      description: A workspace ID.
+      minLength: 1
+      maxLength: 64
+    WorkspaceStatusCode:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - UPDATING
+      - DELETING
+      - CREATION_FAILED
+      description: State of a workspace.
+    LogGroupArn:
+      type: string
+      pattern: arn:aws[a-z0-9-]*:logs:[a-z0-9-]+:\d{12}:log-group:[A-Za-z0-9\.\-\_\#/]{1,512}\:\*
+    DescribeAlertManagerDefinitionResponse:
+      type: object
+      required:
+      - alertManagerDefinition
+      properties:
+        alertManagerDefinition:
+          allOf:
+          - $ref: '#/components/schemas/AlertManagerDefinitionDescription'
+          - description: The properties of the selected workspace's alert manager definition.
+      description: Represents the output of a DescribeAlertManagerDefinition operation.
+    RuleGroupsNamespaceSummaryList:
+      type: array
+      description: A list of rule groups namespace summary.
+      items:
+        $ref: '#/components/schemas/RuleGroupsNamespaceSummary'
+    CreateAlertManagerDefinitionResponse:
+      type: object
+      required:
+      - status
+      properties:
+        status:
+          allOf:
+          - $ref: '#/components/schemas/AlertManagerDefinitionStatus'
+          - description: The status of alert manager definition.
+      description: Represents the output of a CreateAlertManagerDefinition operation.
+    DescribeLoggingConfigurationResponse:
+      type: object
+      required:
+      - loggingConfiguration
+      properties:
+        loggingConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/LoggingConfigurationMetadata'
+          - description: Metadata object containing information about the logging configuration of a workspace.
+      description: Represents the output of a DescribeLoggingConfiguration operation.
+    RuleGroupsNamespaceSummary:
+      type: object
+      required:
+      - arn
+      - name
+      - status
+      - createdAt
+      - modifiedAt
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/RuleGroupsNamespaceArn'
+          - description: The Amazon Resource Name (ARN) of this rule groups namespace.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/RuleGroupsNamespaceName'
+          - description: The rule groups namespace name.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/RuleGroupsNamespaceStatus'
+          - description: The status of rule groups namespace.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time when the rule groups namespace was created.
+        modifiedAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time when the rule groups namespace was modified.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The tags of this rule groups namespace.
+      description: Represents a summary of the rule groups namespace.
+    RuleGroupsNamespaceStatusCode:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - UPDATING
+      - DELETING
+      - CREATION_FAILED
+      - UPDATE_FAILED
+      description: State of a namespace.
+    RuleGroupsNamespaceArn:
+      type: string
+      description: An ARN identifying a rule groups namespace.
+    RuleGroupsNamespaceData:
+      type: string
+      description: The rule groups namespace data.
+    ListRuleGroupsNamespacesResponse:
+      type: object
+      required:
+      - ruleGroupsNamespaces
+      properties:
+        ruleGroupsNamespaces:
+          allOf:
+          - $ref: '#/components/schemas/RuleGroupsNamespaceSummaryList'
+          - description: The list of the selected rule groups namespaces.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: Pagination token to use when requesting the next page in this list.
+      description: Represents the output of a ListRuleGroupsNamespaces operation.
+    ResourceNotFoundException: {}
+    AlertManagerDefinitionStatus:
+      type: object
+      required:
+      - statusCode
+      properties:
+        statusCode:
+          allOf:
+          - $ref: '#/components/schemas/AlertManagerDefinitionStatusCode'
+          - description: Status code of this definition.
+        statusReason:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The reason for failure if any.
+      description: Represents the status of a definition.
     WorkspaceDescription:
       type: object
       required:
@@ -1501,306 +1854,17 @@ components:
           - $ref: '#/components/schemas/TagMap'
           - description: The tags of this workspace.
       description: Represents the properties of a workspace.
-    WorkspaceStatusCode:
-      type: string
-      enum:
-      - CREATING
-      - ACTIVE
-      - UPDATING
-      - DELETING
-      - CREATION_FAILED
-      description: State of a workspace.
-    RuleGroupsNamespaceData:
-      type: string
-      description: The rule groups namespace data.
-    String:
-      type: string
-    WorkspaceArn:
-      type: string
-      description: An ARN identifying a Workspace.
-    ResourceNotFoundException: {}
-    Uri:
-      type: string
-      minLength: 1
-      maxLength: 1024
-    TagValue:
-      type: string
-      pattern: ([\p{L}\p{Z}\p{N}_.:/=+\-@]*)
-      minLength: 0
-      maxLength: 256
-    WorkspaceSummary:
-      type: object
-      required:
-      - workspaceId
-      - arn
-      - status
-      - createdAt
-      properties:
-        workspaceId:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceId'
-          - description: Unique string identifying this workspace.
-        alias:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceAlias'
-          - description: Alias of this workspace.
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceArn'
-          - description: The AmazonResourceName of this workspace.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceStatus'
-          - description: The status of this workspace.
-        createdAt:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The time when the workspace was created.
-        tags:
-          allOf:
-          - $ref: '#/components/schemas/TagMap'
-          - description: The tags of this workspace.
-      description: Represents a summary of the properties of a workspace.
-    RuleGroupsNamespaceStatusCode:
-      type: string
-      enum:
-      - CREATING
-      - ACTIVE
-      - UPDATING
-      - DELETING
-      - CREATION_FAILED
-      - UPDATE_FAILED
-      description: State of a namespace.
-    RuleGroupsNamespaceArn:
-      type: string
-      description: An ARN identifying a rule groups namespace.
-    WorkspaceSummaryList:
-      type: array
-      description: A list of workspace summaries.
-      items:
-        $ref: '#/components/schemas/WorkspaceSummary'
-    TagMap:
-      type: object
-      description: The list of tags assigned to the resource.
-      minProperties: 0
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    ServiceQuotaExceededException: {}
-    PaginationToken:
-      type: string
-      description: A token used to access the next page in a paginated result set.
-    AlertManagerDefinitionStatus:
-      type: object
-      required:
-      - statusCode
-      properties:
-        statusCode:
-          allOf:
-          - $ref: '#/components/schemas/AlertManagerDefinitionStatusCode'
-          - description: Status code of this definition.
-        statusReason:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The reason for failure if any.
-      description: Represents the status of a definition.
-    LoggingConfigurationStatus:
-      type: object
-      required:
-      - statusCode
-      properties:
-        statusCode:
-          allOf:
-          - $ref: '#/components/schemas/LoggingConfigurationStatusCode'
-          - description: Status code of the logging configuration.
-        statusReason:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The reason for failure if any.
-      description: Represents the status of a logging configuration.
-    ConflictException: {}
-    CreateWorkspaceResponse:
-      type: object
-      required:
-      - workspaceId
-      - arn
-      - status
-      properties:
-        workspaceId:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceId'
-          - description: The generated ID of the workspace that was just created.
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceArn'
-          - description: The ARN of the workspace that was just created.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceStatus'
-          - description: The status of the workspace that was just created (usually CREATING).
-        tags:
-          allOf:
-          - $ref: '#/components/schemas/TagMap'
-          - description: The tags of this workspace.
-      description: Represents the output of a CreateWorkspace operation.
-    WorkspaceId:
-      type: string
-      pattern: .*[0-9A-Za-z][-.0-9A-Z_a-z]*.*
-      description: A workspace ID.
-      minLength: 1
-      maxLength: 64
-    AlertManagerDefinitionDescription:
-      type: object
-      required:
-      - status
-      - data
-      - createdAt
-      - modifiedAt
-      properties:
-        status:
-          allOf:
-          - $ref: '#/components/schemas/AlertManagerDefinitionStatus'
-          - description: The status of alert manager definition.
-        data:
-          allOf:
-          - $ref: '#/components/schemas/AlertManagerDefinitionData'
-          - description: The alert manager definition.
-        createdAt:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The time when the alert manager definition was created.
-        modifiedAt:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The time when the alert manager definition was modified.
-      description: Represents the properties of an alert manager definition.
-    ThrottlingException: {}
-    PutRuleGroupsNamespaceResponse:
-      type: object
-      required:
-      - name
-      - arn
-      - status
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/RuleGroupsNamespaceName'
-          - description: The rule groups namespace name.
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/RuleGroupsNamespaceArn'
-          - description: The Amazon Resource Name (ARN) of this rule groups namespace.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/RuleGroupsNamespaceStatus'
-          - description: The status of rule groups namespace.
-        tags:
-          allOf:
-          - $ref: '#/components/schemas/TagMap'
-          - description: The tags of this rule groups namespace.
-      description: Represents the output of a PutRuleGroupsNamespace operation.
-    LoggingConfigurationStatusCode:
-      type: string
-      enum:
-      - CREATING
-      - ACTIVE
-      - UPDATING
-      - DELETING
-      - CREATION_FAILED
-      - UPDATE_FAILED
-      description: State of a logging configuration.
-    PutAlertManagerDefinitionResponse:
-      type: object
-      required:
-      - status
-      properties:
-        status:
-          allOf:
-          - $ref: '#/components/schemas/AlertManagerDefinitionStatus'
-          - description: The status of alert manager definition.
-      description: Represents the output of a PutAlertManagerDefinition operation.
     RuleGroupsNamespaceName:
       type: string
       pattern: .*[0-9A-Za-z][-.0-9A-Z_a-z]*.*
       description: The namespace name that the rule group belong to.
       minLength: 1
       maxLength: 64
-    ListWorkspacesResponse:
-      type: object
-      required:
-      - workspaces
-      properties:
-        workspaces:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceSummaryList'
-          - description: The list of existing workspaces, including those undergoing creation or deletion.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: Pagination token to use when requesting the next page in this list.
-      description: Represents the output of a ListWorkspaces operation.
-    LogGroupArn:
+    WorkspaceAlias:
       type: string
-      pattern: arn:aws[a-z0-9-]*:logs:[a-z0-9-]+:\d{12}:log-group:[A-Za-z0-9\.\-\_\#/]{1,512}\:\*
-    DescribeLoggingConfigurationResponse:
-      type: object
-      required:
-      - loggingConfiguration
-      properties:
-        loggingConfiguration:
-          allOf:
-          - $ref: '#/components/schemas/LoggingConfigurationMetadata'
-          - description: Metadata object containing information about the logging configuration of a workspace.
-      description: Represents the output of a DescribeLoggingConfiguration operation.
-    CreateRuleGroupsNamespaceResponse:
-      type: object
-      required:
-      - name
-      - arn
-      - status
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/RuleGroupsNamespaceName'
-          - description: The rule groups namespace name.
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/RuleGroupsNamespaceArn'
-          - description: The Amazon Resource Name (ARN) of this rule groups namespace.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/RuleGroupsNamespaceStatus'
-          - description: The status of rule groups namespace.
-        tags:
-          allOf:
-          - $ref: '#/components/schemas/TagMap'
-          - description: The tags of this rule groups namespace.
-      description: Represents the output of a CreateRuleGroupsNamespace operation.
-    ListRuleGroupsNamespacesResponse:
-      type: object
-      required:
-      - ruleGroupsNamespaces
-      properties:
-        ruleGroupsNamespaces:
-          allOf:
-          - $ref: '#/components/schemas/RuleGroupsNamespaceSummaryList'
-          - description: The list of the selected rule groups namespaces.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: Pagination token to use when requesting the next page in this list.
-      description: Represents the output of a ListRuleGroupsNamespaces operation.
-    DescribeAlertManagerDefinitionResponse:
-      type: object
-      required:
-      - alertManagerDefinition
-      properties:
-        alertManagerDefinition:
-          allOf:
-          - $ref: '#/components/schemas/AlertManagerDefinitionDescription'
-          - description: The properties of the selected workspace's alert manager definition.
-      description: Represents the output of a DescribeAlertManagerDefinition operation.
-    InternalServerException: {}
+      description: A user-assigned workspace alias.
+      minLength: 1
+      maxLength: 100
     DescribeRuleGroupsNamespaceResponse:
       type: object
       required:
@@ -1811,6 +1875,67 @@ components:
           - $ref: '#/components/schemas/RuleGroupsNamespaceDescription'
           - description: The selected rule groups namespace.
       description: Represents the output of a DescribeRuleGroupsNamespace operation.
+    TagMap:
+      type: object
+      description: The list of tags assigned to the resource.
+      minProperties: 0
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    UpdateLoggingConfigurationResponse:
+      type: object
+      required:
+      - status
+      properties:
+        status:
+          allOf:
+          - $ref: '#/components/schemas/LoggingConfigurationStatus'
+          - description: The status of the logging configuration.
+      description: Represents the output of an UpdateLoggingConfiguration operation.
+    AlertManagerDefinitionData:
+      type: string
+      description: The alert manager definition data.
+    CreateLoggingConfigurationResponse:
+      type: object
+      required:
+      - status
+      properties:
+        status:
+          allOf:
+          - $ref: '#/components/schemas/LoggingConfigurationStatus'
+          - description: The status of the logging configuration.
+      description: Represents the output of a CreateLoggingConfiguration operation.
+    LoggingConfigurationMetadata:
+      type: object
+      required:
+      - status
+      - workspace
+      - logGroupArn
+      - createdAt
+      - modifiedAt
+      properties:
+        status:
+          allOf:
+          - $ref: '#/components/schemas/LoggingConfigurationStatus'
+          - description: The status of the logging configuration.
+        workspace:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceId'
+          - description: The workspace where the logging configuration exists.
+        logGroupArn:
+          allOf:
+          - $ref: '#/components/schemas/LogGroupArn'
+          - description: The ARN of the CW log group to which the vended log data will be published.
+        createdAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time when the logging configuration was created.
+        modifiedAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time when the logging configuration was modified.
+      description: Represents the properties of a logging configuration metadata.
+    ThrottlingException: {}
     RuleGroupsNamespaceDescription:
       type: object
       required:
@@ -1850,183 +1975,40 @@ components:
           - $ref: '#/components/schemas/TagMap'
           - description: The tags of this rule groups namespace.
       description: Represents a description of the rule groups namespace.
-    ValidationException: {}
-    RuleGroupsNamespaceSummaryList:
+    WorkspaceSummaryList:
       type: array
-      description: A list of rule groups namespace summary.
+      description: A list of workspace summaries.
       items:
-        $ref: '#/components/schemas/RuleGroupsNamespaceSummary'
-    UpdateLoggingConfigurationResponse:
+        $ref: '#/components/schemas/WorkspaceSummary'
+    ValidationException: {}
+    ConflictException: {}
+    PutRuleGroupsNamespaceResponse:
       type: object
       required:
-      - status
-      properties:
-        status:
-          allOf:
-          - $ref: '#/components/schemas/LoggingConfigurationStatus'
-          - description: The status of the logging configuration.
-      description: Represents the output of an UpdateLoggingConfiguration operation.
-    RuleGroupsNamespaceSummary:
-      type: object
-      required:
-      - arn
       - name
+      - arn
       - status
-      - createdAt
-      - modifiedAt
       properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/RuleGroupsNamespaceArn'
-          - description: The Amazon Resource Name (ARN) of this rule groups namespace.
         name:
           allOf:
           - $ref: '#/components/schemas/RuleGroupsNamespaceName'
           - description: The rule groups namespace name.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/RuleGroupsNamespaceArn'
+          - description: The Amazon Resource Name (ARN) of this rule groups namespace.
         status:
           allOf:
           - $ref: '#/components/schemas/RuleGroupsNamespaceStatus'
           - description: The status of rule groups namespace.
-        createdAt:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The time when the rule groups namespace was created.
-        modifiedAt:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The time when the rule groups namespace was modified.
         tags:
           allOf:
           - $ref: '#/components/schemas/TagMap'
           - description: The tags of this rule groups namespace.
-      description: Represents a summary of the rule groups namespace.
-    AlertManagerDefinitionData:
-      type: string
-      description: The alert manager definition data.
-    WorkspaceStatus:
-      type: object
-      required:
-      - statusCode
-      properties:
-        statusCode:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceStatusCode'
-          - description: Status code of this workspace.
-      description: Represents the status of a workspace.
-    WorkspaceAlias:
-      type: string
-      description: A user-assigned workspace alias.
-      minLength: 1
-      maxLength: 100
-    LoggingConfigurationMetadata:
-      type: object
-      required:
-      - status
-      - workspace
-      - logGroupArn
-      - createdAt
-      - modifiedAt
-      properties:
-        status:
-          allOf:
-          - $ref: '#/components/schemas/LoggingConfigurationStatus'
-          - description: The status of the logging configuration.
-        workspace:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceId'
-          - description: The workspace where the logging configuration exists.
-        logGroupArn:
-          allOf:
-          - $ref: '#/components/schemas/LogGroupArn'
-          - description: The ARN of the CW log group to which the vended log data will be published.
-        createdAt:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The time when the logging configuration was created.
-        modifiedAt:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The time when the logging configuration was modified.
-      description: Represents the properties of a logging configuration metadata.
-    CreateLoggingConfigurationResponse:
-      type: object
-      required:
-      - status
-      properties:
-        status:
-          allOf:
-          - $ref: '#/components/schemas/LoggingConfigurationStatus'
-          - description: The status of the logging configuration.
-      description: Represents the output of a CreateLoggingConfiguration operation.
-    DescribeWorkspaceResponse:
-      type: object
-      required:
-      - workspace
-      properties:
-        workspace:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceDescription'
-          - description: The properties of the selected workspace.
-      description: Represents the output of a DescribeWorkspace operation.
-    CreateAlertManagerDefinitionResponse:
-      type: object
-      required:
-      - status
-      properties:
-        status:
-          allOf:
-          - $ref: '#/components/schemas/AlertManagerDefinitionStatus'
-          - description: The status of alert manager definition.
-      description: Represents the output of a CreateAlertManagerDefinition operation.
-    RuleGroupsNamespaceStatus:
-      type: object
-      required:
-      - statusCode
-      properties:
-        statusCode:
-          allOf:
-          - $ref: '#/components/schemas/RuleGroupsNamespaceStatusCode'
-          - description: Status code of this namespace.
-        statusReason:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The reason for failure if any.
-      description: Represents the status of a namespace.
-    AccessDeniedException: {}
-    AlertManagerDefinitionStatusCode:
-      type: string
-      enum:
-      - CREATING
-      - ACTIVE
-      - UPDATING
-      - DELETING
-      - CREATION_FAILED
-      - UPDATE_FAILED
-      description: State of an alert manager definition.
-    Timestamp:
-      type: string
-      format: date-time
+      description: Represents the output of a PutRuleGroupsNamespace operation.
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -2045,6 +2027,24 @@ components:
       required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

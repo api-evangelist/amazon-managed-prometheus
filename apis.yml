@@ -96,7 +96,7 @@ apis:
     url: json-ld/amazon-managed-prometheus-context.jsonld
 common:
 - type: Website
-  url: https://amazon.com
+  url: https://aws.amazon.com/prometheus/
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-managed-service-for-prometheus/overview
 - type: AgenticAccess
@@ -189,5 +189,5 @@ integrations:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
-x-parent: aws
+x-parent: amazon-web-services
 x-relationship: product
