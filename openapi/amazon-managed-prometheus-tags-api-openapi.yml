@@ -309,7 +309,14 @@ paths:
       - Tags
 components:
   schemas:
-    AccessDeniedException: {}
+    UntagResourceResponse:
+      type: object
+      properties: {}
+    TagKey:
+      type: string
+      pattern: ([\p{L}\p{Z}\p{N}_.:/=+\-@]*)
+      minLength: 1
+      maxLength: 128
     TagMap:
       type: object
       description: The list of tags assigned to the resource.
@@ -317,58 +324,27 @@ components:
       maxProperties: 50
       additionalProperties:
         $ref: '#/components/schemas/TagValue'
-    TagKey:
-      type: string
-      pattern: ([\p{L}\p{Z}\p{N}_.:/=+\-@]*)
-      minLength: 1
-      maxLength: 128
     TagValue:
       type: string
       pattern: ([\p{L}\p{Z}\p{N}_.:/=+\-@]*)
       minLength: 0
       maxLength: 256
-    ThrottlingException: {}
-    TagResourceResponse:
-      type: object
-      properties: {}
-    ValidationException: {}
-    UntagResourceResponse:
-      type: object
-      properties: {}
-    ResourceNotFoundException: {}
-    InternalServerException: {}
     ListTagsForResourceResponse:
       type: object
       properties:
         tags:
           $ref: '#/components/schemas/TagMap'
+    ThrottlingException: {}
+    ResourceNotFoundException: {}
+    AccessDeniedException: {}
+    TagResourceResponse:
+      type: object
+      properties: {}
+    ValidationException: {}
+    InternalServerException: {}
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -381,6 +357,30 @@ components:
       required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
