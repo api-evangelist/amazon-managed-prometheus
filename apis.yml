@@ -95,6 +95,9 @@ apis:
   - type: JSONLD
     url: json-ld/amazon-managed-prometheus-context.jsonld
 common:
+- type: CapabilityMap
+  url: capabilities/amazon-managed-prometheus-capability-edges.yml
+  name: Amazon Managed Service for Prometheus Business Capability Map
 - type: Website
   url: https://aws.amazon.com/prometheus/
 - type: PostmanWorkspace
