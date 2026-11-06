@@ -50,7 +50,7 @@ plans:
   period: per-use
   unit: collector hour / 10M samples
 x-canonical:
-  generated: '2026-11-02'
+  generated: '2026-11-06'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid
@@ -59,13 +59,14 @@ x-canonical:
   units:
   - compute
   - data
+  - request
   plans:
   - name: Query Samples Processed (QSP)
     access: other
-    model: subscription
+    model: hybrid
     model_how: derived
     units:
-    - other
+    - request
     periods:
     - other
   - name: AWS Free Tier
